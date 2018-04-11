@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="马里奥">
 <meta property="og:description" content="词法分析器的设计与实现词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T03:37:01.397Z">
+<meta property="og:updated_time" content="2018-04-11T04:47:06.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="词法分析器的设计与实现">
 <meta name="twitter:description" content="词法分析器的设计与实现词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
@@ -347,8 +347,7 @@
 <p>​                                   1.标识符的自身值是他在符号表的入口位置。</p>
 <p>​                                   2.常数的自身值是常数本身（或者其他二进制数值）。</p>
 <p>​                                   3.关键字和界限符的自身值为本身。</p>
-<p>##词法分析器功能</p>
-<p>1.输入：字符串（带进行词法分析的源程序），可从键盘直接输入或从文件读入。</p>
+<h2 id="词法分析器功能"><a href="#词法分析器功能" class="headerlink" title="词法分析器功能"></a>词法分析器功能</h2><p>1.输入：字符串（带进行词法分析的源程序），可从键盘直接输入或从文件读入。</p>
 <p>   输出：由（种别码，自身值）所组成的二元组序列。</p>
 <p>   单词的种别码是语法分析需要的信息，可用整数编码表示，例如：标识符的种别码为1，常数为2，保留字为3，运算符为4，界符为5。</p>
 <p>   单词的自身值是编译其他阶段需要的信息，标识符的自身是标识符在符号表入口，其他类型单词的自身值是其本身。</p>
@@ -647,7 +646,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析器的设计与实现"><span class="nav-number">1.</span> <span class="nav-text">词法分析器的设计与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析器介绍"><span class="nav-number">1.1.</span> <span class="nav-text">词法分析器介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码附带注释"><span class="nav-number">1.2.</span> <span class="nav-text">源码附带注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程感悟"><span class="nav-number">1.3.</span> <span class="nav-text">编程感悟</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#词法分析器的设计与实现"><span class="nav-number">1.</span> <span class="nav-text">词法分析器的设计与实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析器介绍"><span class="nav-number">1.1.</span> <span class="nav-text">词法分析器介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词法分析器功能"><span class="nav-number">1.2.</span> <span class="nav-text">词法分析器功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码附带注释"><span class="nav-number">1.3.</span> <span class="nav-text">源码附带注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编程感悟"><span class="nav-number">1.4.</span> <span class="nav-text">编程感悟</span></a></li></ol></li></ol></div>
             
 
           </div>
