@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="词法分析器的设计与实现词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
+<meta name="description" content="词法分析器的设计与实现 词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
 <meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="词法分析器的设计与实现">
 <meta property="og:url" content="http://yoursite.com/2018/04/11/词法分析器的设计与实现/index.html">
 <meta property="og:site_name" content="马里奥">
-<meta property="og:description" content="词法分析器的设计与实现词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
+<meta property="og:description" content="词法分析器的设计与实现 词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-11T04:47:06.181Z">
+<meta property="og:updated_time" content="2018-04-11T06:16:10.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="词法分析器的设计与实现">
-<meta name="twitter:description" content="词法分析器的设计与实现词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
+<meta name="twitter:description" content="词法分析器的设计与实现 词法分析器介绍  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。   TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出： ​                                   1.标识符的自身值是他在符号表的入口位置。 ​">
 
 
 
@@ -342,7 +342,8 @@
       
 
       
-        <h1 id="词法分析器的设计与实现"><a href="#词法分析器的设计与实现" class="headerlink" title="词法分析器的设计与实现"></a>词法分析器的设计与实现</h1><h2 id="词法分析器介绍"><a href="#词法分析器介绍" class="headerlink" title="词法分析器介绍"></a>词法分析器介绍</h2><p>  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。</p>
+        <h1 id="词法分析器的设计与实现"><a href="#词法分析器的设计与实现" class="headerlink" title="词法分析器的设计与实现"></a>词法分析器的设计与实现</h1><hr>
+<h2 id="词法分析器介绍"><a href="#词法分析器介绍" class="headerlink" title="词法分析器介绍"></a>词法分析器介绍</h2><p>  词法分析是从左到右扫描每行源程序的符号，拼成单词，换成统一的机内表示形式——TOKEN字，送给语法分析程序。</p>
 <p>  TOKEN字是一个二元式：（单词种别码，自身值）。单词自身值按如下规则给出：</p>
 <p>​                                   1.标识符的自身值是他在符号表的入口位置。</p>
 <p>​                                   2.常数的自身值是常数本身（或者其他二进制数值）。</p>
