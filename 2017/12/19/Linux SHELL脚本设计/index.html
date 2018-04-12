@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Linux SHELL脚本设计 SHELL程序的主要用途  在SHELL程序中不仅仅可以使用命令的集合，而且可而且可以安排自动化处理过程，因此可以通过编写SHELL程序使大量的任务执行实现自动化。SHELL比较擅长完成系统管理任务，尤其适合完成那些易用性、可维护性和便携性比执行效率更优先的任务。 SHELL程序的执行和调试⑴在bash的SHELL程序设计中，程序必须以下面的行开始： ​">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux SHELL脚本设计">
+<meta property="og:url" content="http://yoursite.com/2017/12/19/Linux SHELL脚本设计/index.html">
+<meta property="og:site_name" content="马里奥">
+<meta property="og:description" content="Linux SHELL脚本设计 SHELL程序的主要用途  在SHELL程序中不仅仅可以使用命令的集合，而且可而且可以安排自动化处理过程，因此可以通过编写SHELL程序使大量的任务执行实现自动化。SHELL比较擅长完成系统管理任务，尤其适合完成那些易用性、可维护性和便携性比执行效率更优先的任务。 SHELL程序的执行和调试⑴在bash的SHELL程序设计中，程序必须以下面的行开始： ​">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-12T07:42:32.111Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux SHELL脚本设计">
+<meta name="twitter:description" content="Linux SHELL脚本设计 SHELL程序的主要用途  在SHELL程序中不仅仅可以使用命令的集合，而且可而且可以安排自动化处理过程，因此可以通过编写SHELL程序使大量的任务执行实现自动化。SHELL比较擅长完成系统管理任务，尤其适合完成那些易用性、可维护性和便携性比执行效率更优先的任务。 SHELL程序的执行和调试⑴在bash的SHELL程序设计中，程序必须以下面的行开始： ​">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/19/Linux SHELL脚本设计/"/>
+
+
+
+
+
+  <title>Linux SHELL脚本设计 | 马里奥</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/zhao-xudong" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">马里奥</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/19/Linux SHELL脚本设计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="马里奥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="马里奥">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux SHELL脚本设计</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T07:54:21+08:00">
+                2017-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux学习/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Linux-SHELL脚本设计"><a href="#Linux-SHELL脚本设计" class="headerlink" title="Linux SHELL脚本设计"></a>Linux SHELL脚本设计</h1><hr>
+<h2 id="SHELL程序的主要用途"><a href="#SHELL程序的主要用途" class="headerlink" title="SHELL程序的主要用途"></a>SHELL程序的主要用途</h2><p>  在SHELL程序中不仅仅可以使用命令的集合，而且可而且可以安排自动化处理过程，因此可以通过编写SHELL程序使大量的任务执行实现自动化。SHELL比较擅长完成系统管理任务，尤其适合完成那些易用性、可维护性和便携性比执行效率更优先的任务。</p>
+<h2 id="SHELL程序的执行和调试"><a href="#SHELL程序的执行和调试" class="headerlink" title="SHELL程序的执行和调试"></a>SHELL程序的执行和调试</h2><p>⑴在bash的SHELL程序设计中，程序必须以下面的行开始：</p>
+<p>​      #！/bin/bash</p>
+<p>这里符号#！用来告诉系统，后面给出的参数是用来执行该文件的程序。</p>
+<p>⑵当编辑完一个SHELL脚本后，要使该脚本能够执行，还必须使该脚本文件具有可执行权。需要执行命令：chmod  +x  filename</p>
+<p>⑶在shell程序中，以#开头到一个行结束的句子表示注释信息。建议大家在编写shell程序时养成添加注释的习惯，因为注释不仅能给其他需要熟悉悉该程序的人以帮助，也能给出脚本编写者设计原理的提示。</p>
+<p>⑷进行shell程序设计时，必定会用到<strong>变量</strong>。Shell编程中使用的变量有自己的特色，即所有的变量都是由字符串组成的，而且对变量无须进行声明，可直接进行变量赋值操作。</p>
+<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><h3 id="1-创建以下菜单程序"><a href="#1-创建以下菜单程序" class="headerlink" title="1.创建以下菜单程序"></a>1.创建以下菜单程序</h3><p><strong>USER:**</strong>            HOST: <strong><em>**</em></strong>          DATE: xx/xx/20xx</p>
+<p><strong>A:</strong> <strong>创建子目录并复制文件</strong></p>
+<p><strong>B:</strong> <strong>文件权限测试</strong></p>
+<p><strong>C:</strong> <strong>文件字符转换</strong></p>
+<p><strong>D:</strong> <strong>文件总数及文本行数统计</strong></p>
+<p><strong>E:</strong> <strong>文件查找</strong></p>
+<p><strong>Q:</strong> <strong>退出系统</strong></p>
+<p>———————————————————————————————</p>
+<p>  A：在用户家目录下创建名字为本人姓名的子目录，其存取权限为(drwxr-xr-x)。测试目录确实存在后，将已存在的file1、file2两文件拷入其中并分别显示两文件的内容。显示完成后将file1、file2两文件截断为大小为0的空文件。</p>
+<p>  B：测试当前用户对系统中某文件是否有r、w、x的权限，输出测试结果。</p>
+<p>  C：将file1、file2两文件中的小写字符转换为大写，并将转换后的内容分别写入新文件。判断上述操作成功后分别显示转换后的新文件的内容。</p>
+<p>  D：统计/dev目录下目录文件和符号链接文件的数目；统计系统中某文本文件中空行的行数；显示当前系统中所有环境变量。</p>
+<p>  E：在/dev目录下查找由s开头且文件名由5个字符组成的文件，找到后用file命令显示其文件类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">USER= &apos;whoami&apos;</span><br><span class="line">HOST=`hostname -s`</span><br><span class="line">MYDATE=`date +%d/%m/%y`</span><br><span class="line">while :</span><br><span class="line">do</span><br><span class="line">clear</span><br><span class="line">cat &lt;&lt; MAYDAY</span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line"> User:$USER   Host:$HOST   Date:$MYDATE</span><br><span class="line">-----------------------------------------------------------------</span><br><span class="line">                    A:创建子目录并复制文件</span><br><span class="line">                    B:文件权限测试</span><br><span class="line">                    C:文件字符转换</span><br><span class="line">                    D:文件总数及文本行数统计</span><br><span class="line">                    E:文件查找</span><br><span class="line">                    Q:退出系统</span><br><span class="line">------------------------------------------------------------------</span><br><span class="line">MAYDAY</span><br><span class="line">echo -n &quot;Please Choose [A,B,C,D,E,Q]&gt;&quot;</span><br><span class="line">read CHOICE</span><br><span class="line">case $CHOICE in</span><br><span class="line">A)</span><br><span class="line">echo &quot;A:创建子目录并复制文件&quot;</span><br><span class="line">echo &quot;输入要创建的文件名:&quot;</span><br><span class="line">read FILE</span><br><span class="line">mkdir $FILE</span><br><span class="line">chmod 755 $FILE</span><br><span class="line">test -d $FILE</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">cp file1 $FILE</span><br><span class="line">cp file2 $FILE</span><br><span class="line">echo &quot;file1 内容&quot;</span><br><span class="line">cat file1</span><br><span class="line">:&gt;$FILE/file1</span><br><span class="line">echo &quot;file2 内容&quot;</span><br><span class="line">cat file2</span><br><span class="line">:&gt;$FILE/file2</span><br><span class="line">fi</span><br><span class="line">;;</span><br><span class="line">B)</span><br><span class="line">echo &quot;B:文件权限测试&quot;</span><br><span class="line">echo &quot;请输入要测试的文件绝对路径&quot;</span><br><span class="line">read NAME1</span><br><span class="line">test -r $NAME1</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">echo &quot;可读&quot;</span><br><span class="line">else</span><br><span class="line">echo &quot;不可读&quot;</span><br><span class="line">fi</span><br><span class="line">test -w $NAME1</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">echo &quot;可写&quot;</span><br><span class="line">else</span><br><span class="line">echo &quot;不可写&quot;</span><br><span class="line">fi</span><br><span class="line">test -x $NAME1</span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line">echo &quot;可执行&quot;</span><br><span class="line">else</span><br><span class="line">echo &quot;不可执行&quot;</span><br><span class="line">fi</span><br><span class="line">;;</span><br><span class="line">C)</span><br><span class="line">echo &quot;C:文件字符转换&quot;</span><br><span class="line">cat file1 | tr &quot;[a-z]&quot; &quot;[A-Z]&quot; &gt;file1.tr</span><br><span class="line">diff -q file1 file1.tr</span><br><span class="line">if [ $? -eq 1 ]</span><br><span class="line">then</span><br><span class="line">echo &quot;file1.tr 内容&quot;</span><br><span class="line">cat file1.tr</span><br><span class="line">fi</span><br><span class="line">cat file2 | tr &quot;[a-z]&quot; &quot;[A-Z]&quot; &gt;file2.tr</span><br><span class="line">diff -q file2 file2.tr</span><br><span class="line">if [ $? -eq 1 ]</span><br><span class="line">then</span><br><span class="line">echo &quot;file2.tr 内容&quot;</span><br><span class="line">cat file2.tr</span><br><span class="line">fi</span><br><span class="line">;;</span><br><span class="line">D)</span><br><span class="line">echo &quot;/dev 目录下目录文件和符号链接文件的数目&quot;</span><br><span class="line">find /dev -type d | wc -l</span><br><span class="line">find /dev -type l | wc -l</span><br><span class="line">echo &quot;file1 空行行数统计&quot;</span><br><span class="line">grep ^$ file1 | wc -l</span><br><span class="line">echo &quot;显示当前系统中所有环境变量&quot;</span><br><span class="line">env</span><br><span class="line">;;</span><br><span class="line">E)</span><br><span class="line">echo &quot;文件查找&quot;</span><br><span class="line">find /dev -name &apos;s????&apos; | xargs file</span><br><span class="line">;;</span><br><span class="line">Q)</span><br><span class="line">exit 0</span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo &quot;输入不符合条件！</span><br><span class="line">请回车后输入[A.B.C.D.E.Q]&quot;</span><br><span class="line">esac</span><br><span class="line">read DD</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h3 id="2-文件pc-txt中保存了三个班级的学生选课成绩"><a href="#2-文件pc-txt中保存了三个班级的学生选课成绩" class="headerlink" title="2.文件pc.txt中保存了三个班级的学生选课成绩"></a>2.文件pc.txt中保存了三个班级的学生选课成绩</h3><p>试编写一段shell程序对文件内容进行统计、计算后输出各个班级选课的学生人数及每班选课成绩的优秀率。 </p>
+<p>pc.txt</p>
+<p>文件内容</p>
+<p>如下：</p>
+<p>Student1: 1301: 75</p>
+<p>Student2: 1302: 96</p>
+<p>Student3: 1303: 99</p>
+<p>Student4: 1302: 93</p>
+<p>Student5: 1303: 23</p>
+<p>Student6:  1301: 77</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">total1=`grep -F 1301 pc.txt|wc -l`</span><br><span class="line">gradeA1=`grep -F 1301 pc.txt|awk -F： &apos;$3 &gt; 90&apos;|wc -l`</span><br><span class="line">rateA1=$(($gradeA1*100/$total1))</span><br><span class="line"></span><br><span class="line">total2=`grep -F 1302 pc.txt|wc -l`</span><br><span class="line">gradeA2=`grep -F 1302 pc.txt|awk -F： &apos;$3 &gt; 90&apos;|wc -l`</span><br><span class="line">rateA2=$(($gradeA2*100/$total2))</span><br><span class="line"></span><br><span class="line">total3=`grep -F 1303 pc.txt|wc -l`</span><br><span class="line">gradeA3=`grep -F 1303 pc.txt|awk -F： &apos;$3 &gt; 90&apos;|wc -l`</span><br><span class="line">rateA3=$(($gradeA3*100/$total3))</span><br><span class="line"></span><br><span class="line">echo &quot;各班选课人数及优秀率（90及以上为优秀）&quot;</span><br><span class="line">echo &quot;1301班选课人数为$total1,优秀率为$rateA1%&quot;</span><br><span class="line">echo &quot;1302班选课人数为$total2,优秀率为$rateA2%&quot;</span><br><span class="line">echo &quot;1303班选课人数为$total3,优秀率为$rateA3%&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="3-学习、理解find和grep-家族-命令"><a href="#3-学习、理解find和grep-家族-命令" class="headerlink" title="3.学习、理解find和grep(家族)命令"></a>3.学习、理解find和grep(家族)命令</h3><p>编制两个个性化的文件搜索工具。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">echo &quot;个性化文件搜索工具:&quot;</span><br><span class="line">echo &quot;1:grep搜索工具&quot;</span><br><span class="line">echo &quot;2:find搜索工具&quot;</span><br><span class="line">echo &quot;选择想要使用的工具[1|2]:&quot;</span><br><span class="line">read CHOICE</span><br><span class="line">if [ &quot;$CHOICE&quot; == &quot;1&quot; ] #选择grep</span><br><span class="line">then</span><br><span class="line">echo &quot;自定义查找&quot;</span><br><span class="line">echo &quot;请输入查找目录:&quot;</span><br><span class="line">read mulu</span><br><span class="line">ls $mulu &gt; mulu.txt</span><br><span class="line">echo &quot;1:查找以匹配模式开头的文件&quot;</span><br><span class="line">echo &quot;2:查找不包含匹配模式的文件&quot;</span><br><span class="line">echo &quot;3:查找以匹配模式结尾并且长度固定的文件&quot;</span><br><span class="line">read CHOICE1</span><br><span class="line">case $CHOICE1 in</span><br><span class="line">	1)echo &quot;查找以匹配模式开头的文件&quot;</span><br><span class="line">	  read scanf</span><br><span class="line">		grep -E ^$scanf mulu.txt</span><br><span class="line">;;</span><br><span class="line">	2)echo &quot;查找不包含匹配模式的文件&quot;</span><br><span class="line">	  read scanf</span><br><span class="line">		grep -Ev $scanf mulu.txt</span><br><span class="line">;;</span><br><span class="line">	3)echo &quot;查找以匹配模式结尾并且长度固定的文件&quot;</span><br><span class="line">	  read scanf</span><br><span class="line">	  echo &quot;请输入长度&quot;</span><br><span class="line">	  read length</span><br><span class="line">          readlength=$(($length-`echo $&#123;#scanf&#125;`))</span><br><span class="line">	  grep -xE [[:alnum:]]\&#123;$readlength\&#125;$scanf mulu.txt</span><br><span class="line">;;</span><br><span class="line"> *)</span><br><span class="line">esac</span><br><span class="line">else #选择find</span><br><span class="line">echo &quot;自定义查找&quot;</span><br><span class="line">echo &quot;请输入查找目录:&quot;</span><br><span class="line">read mulu2</span><br><span class="line">echo &quot;1:查找文件大小大于给定下限的文件&quot;</span><br><span class="line">echo &quot;2:查找给定时间内修改过的文件&quot;</span><br><span class="line">echo &quot;3:查找给定文件后缀的文件&quot;</span><br><span class="line">read CHOICE2</span><br><span class="line">case $CHOICE2 in</span><br><span class="line">	1)echo &quot;请输入文件大小下限值(k)&quot;</span><br><span class="line">	  read size</span><br><span class="line">	  find $mulu2 -size +$size</span><br><span class="line">		</span><br><span class="line">;;</span><br><span class="line">	2)echo &quot;请输入时间(day)&quot;</span><br><span class="line">	  read time</span><br><span class="line">	  find $mulu2 -mtime +$time</span><br><span class="line">		</span><br><span class="line">;;</span><br><span class="line">	</span><br><span class="line">	3)echo &quot;请输入文件后缀&quot;</span><br><span class="line">	  read houzhui</span><br><span class="line">	  find $mulu2 -name *.$houzhui</span><br><span class="line">;;</span><br><span class="line"> *)</span><br><span class="line">esac</span><br><span class="line">fi</span><br><span class="line">read DD</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag"><i class="fa fa-tag"></i> Ubuntu</a>
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/SHELL/" rel="tag"><i class="fa fa-tag"></i> SHELL</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/17/Linux下目录及其操作命令/" rel="next" title="Linux下目录及其操作命令">
+                <i class="fa fa-chevron-left"></i> Linux下目录及其操作命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/11/安卓简易计算器/" rel="prev" title="安卓简易计算器">
+                安卓简易计算器 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">马里奥</p>
+              <p class="site-description motion-element" itemprop="description">世上本无事，庸人自扰之。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/zhao-xudong" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:773626743@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/ceng-xiao-xian-18-5/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-SHELL脚本设计"><span class="nav-number">1.</span> <span class="nav-text">Linux SHELL脚本设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SHELL程序的主要用途"><span class="nav-number">1.1.</span> <span class="nav-text">SHELL程序的主要用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SHELL程序的执行和调试"><span class="nav-number">1.2.</span> <span class="nav-text">SHELL程序的执行和调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序设计"><span class="nav-number">1.3.</span> <span class="nav-text">程序设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建以下菜单程序"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.创建以下菜单程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-文件pc-txt中保存了三个班级的学生选课成绩"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.文件pc.txt中保存了三个班级的学生选课成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-学习、理解find和grep-家族-命令"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.学习、理解find和grep(家族)命令</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">马里奥</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共12.7k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
