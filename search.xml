@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo博客添加搜索功能]]></title>
+    <url>%2F2018%2F04%2F13%2Fhexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%2F</url>
+    <content type="text"><![CDATA[hexo博客添加搜索功能 ##前言 当博文慢慢变多的时候，标签和分类已经不能提供太大的作用，无法准确的定位到自己想要看的博客上去，所以添加一个本站内搜索功能是很有必要的。 安装插件直接在自己的博客文件夹下（我的是blog）点击鼠标右键选择Git Bash Here 1npm install hexo-generator-searchdb --save 修改站点配置文件我的路径是：blog下的_config.yml文件，进行编辑。 12345search： path: search.xml field: post format: html limit: 10000 PS:每个冒号后面都有空格。 修改主题配置文件我的路径：/blog/themes/next下的_config.yml文件，进行编辑。 12local_search: enable: true PS:冒号后面都有空格。 此时，部署到github，打开网页就可以看到搜索功能了，容易添加，使用起来很方便，推荐添加，增加网站友好度。]]></content>
+      <categories>
+        <category>博客杂谈</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo博客添加评论神器---valine]]></title>
     <url>%2F2018%2F04%2F12%2Fhexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%A5%9E%E5%99%A8---valine%2F</url>
     <content type="text"><![CDATA[hexo博客添加评论神器—valine 我们评论系统是放在LeanCloud上的，因此需要先去注册一个账号。 LeanCloud官网，点击注册https://leancloud.cn/ 注册完成后需要创建一个应用，创建成功以后，进入应用→设置→应用key 获取到了你的appid和appkey 1234567App IDXXXXXXXXXXXXXXXXXXXXXXXXXX每个app有一个唯一的ID，不可变更App KeyXXXXXXXXXXXXXXXXXXXXXXXXXX适用于所有平台 拥有了你的appid和appkey后，打开主题配置文件（blog/themes/next/_config.yml）填写appid和appkey 123456789valine： enable: true appid: your app id //你获取的appid appkey your app key //你获取的app key notifiy: false # mail notifier,https://github.com/xCss/Valine/wiki //是否开启邮箱提醒 verfify: false # Verifaication code //开启验证码 planceholde: 评论内容。 //你要发表的评论内容 guest_info: nick,mail,link pageSize: 10 PS：配置的时候自行删除”//“开始以后的注释内容，同时如果开启邮箱提醒的话，会默认开启验证码模式。 完成这些以后还需要在LeanCloud中，进入应用→设置→安全中心在Web 安全域名中填写自己的博客首页，然后保存。 最后部署到github，打开自己的博客就可以看到评论功能，有没有点小激动，快去邀请小伙伴发表评论吧。]]></content>
