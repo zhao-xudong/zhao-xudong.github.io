@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-11T06:16:10.134Z</updated>
+  <updated>2018-04-13T02:58:40.965Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo博客添加评论神器---valine</title>
+    <link href="http://yoursite.com/2018/04/12/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%A5%9E%E5%99%A8---valine/"/>
+    <id>http://yoursite.com/2018/04/12/hexo博客添加评论神器---valine/</id>
+    <published>2018-04-12T15:15:23.000Z</published>
+    <updated>2018-04-13T02:58:40.965Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo博客添加评论神器—valine"><a href="#hexo博客添加评论神器—valine" class="headerlink" title="hexo博客添加评论神器—valine"></a>hexo博客添加评论神器—valine</h1><hr><p>我们评论系统是放在LeanCloud上的，因此需要先去注册一个账号。</p><p>LeanCloud官网，点击注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">https://leancloud.cn/</a></p><p>注册完成后需要创建一个应用，创建成功以后，<strong>进入应用→设置→应用key</strong></p><p>获取到了你的<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">App ID</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">每个app有一个唯一的ID，不可变更</span><br><span class="line"></span><br><span class="line">App Key</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">适用于所有平台</span><br></pre></td></tr></table></figure><p>拥有了你的<strong>appid</strong>和<strong>appkey</strong>后，打开<strong>主题配置文件</strong>（blog/themes/next/_config.yml）填写<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">valine：</span><br><span class="line">enable: true</span><br><span class="line">appid: your app id //你获取的appid</span><br><span class="line">appkey your app key //你获取的app key</span><br><span class="line">notifiy: false # mail notifier,https://github.com/xCss/Valine/wiki //是否开启邮箱提醒</span><br><span class="line">verfify: false # Verifaication code //开启验证码</span><br><span class="line">planceholde: 评论内容。 //你要发表的评论内容</span><br><span class="line">guest_info: nick,mail,link</span><br><span class="line">pageSize: 10</span><br></pre></td></tr></table></figure><p>PS：配置的时候自行删除”//“开始以后的注释内容，同时如果开启邮箱提醒的话，会默认开启验证码模式。</p><p>完成这些以后还需要在<strong>LeanCloud</strong>中，<strong>进入应用→设置→安全中心</strong>在Web 安全域名中填写自己的博客首页，然后保存。</p><p>最后部署到github，打开自己的博客就可以看到评论功能，有没有点小激动，快去邀请小伙伴发表评论吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;hexo博客添加评论神器—valine&quot;&gt;&lt;a href=&quot;#hexo博客添加评论神器—valine&quot; class=&quot;headerlink&quot; title=&quot;hexo博客添加评论神器—valine&quot;&gt;&lt;/a&gt;hexo博客添加评论神器—valine&lt;/h1&gt;&lt;hr&gt;
+
+      
+    
+    </summary>
+    
+      <category term="博客杂谈" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="Valine" scheme="http://yoursite.com/tags/Valine/"/>
+    
+  </entry>
   
   <entry>
     <title>词法分析器的设计与实现</title>
