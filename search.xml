@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java类多文件运行]]></title>
+    <url>%2F2018%2F04%2F14%2FJava%E7%B1%BB%E5%A4%9A%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C%2F</url>
+    <content type="text"><![CDATA[Java类多文件运行 TV类对电视机的建模：​ channel: int //这个TV的当前频道（从1到120） ​ volumeLevel: int //这个TV的当前音量（从1到7） ​ on: boolean //表明这个TV是开的还是关的 ​ +TV() //构造一个默认的TV对象 ​ +turnOn(): void //打开这个TV ​ +turnOff(): void //关闭这个TV ​ +setChannel(newChannel: int): void //为这个TV设置一个新频道 ​ +setVolume(newVolumeLevel: int): void //为这个TV设置一个新音量 ​ +channelUp(): void //给频道数+1 ​ +channelDown(): void //给频道数-1 ​ +volumeUp(): void //给音量+1 ​ +volumeDown:void //给音量-1 TV.java文件TV类中的构造方法定义为公共的，因此可以从其他类中访问。 123456789101112131415161718192021222324252627282930313233343536public class TV &#123; int channel = 1; int volumeLevel = 1; boolean on = false; public void turnOn()&#123;//开 on = true; &#125; public void turnOff()&#123;//关 on = false; &#125; public void setChannel(int newChannel)&#123; if(on &amp;&amp; newChannel &gt;= 1&amp;&amp; newChannel &lt;= 120) volumeLevel = newChannel; &#125; public void setVolume(int newVolumeLevel)&#123; if(on &amp;&amp; newVolumeLevel &gt;=1 &amp;&amp; newVolumeLevel &lt;=7) volumeLevel = newVolumeLevel; &#125; public void channelUp()&#123; if(on &amp;&amp; channel &lt; 120) channel++; &#125; public void channelDown()&#123; if (on &amp;&amp; channel &gt; 1) channel--; &#125; public void volumeUp()&#123; if(on &amp;&amp; volumeLevel &lt; 7) volumeLevel++; &#125; public void volumeDown()&#123; if(on &amp;&amp; volumeLevel &gt; 1) volumeLevel--; &#125;&#125; TestTV.java文件第3行和第8行创建了两个对象，然后调用对象中的方法来完成设置频道和音量的动作。 12345678910111213141516public class TestTV &#123; public static void main(String[] args)&#123; TV tv1 = new TV(); tv1.turnOn();//tv1 开 tv1.setChannel(30);//频道 30 tv1.setVolume(3);// 音量 3 TV tv2 = new TV(); tv2.turnOn();// tv2 开 tv2.channelUp();// tv2 频道+1 tv2.volumeUp();//tv2 音量+1 System.out.println(&quot;tv1的频道是&quot;+tv1.channel+&quot;声音是&quot;+tv1.volumeLevel); System.out.println(&quot;tv2的频道是&quot;+tv2.channel+&quot;声音是&quot;+tv2.volumeLevel); &#125;&#125; 运行结果12tv1的频道是1声音是3tv2的频道是2声音是2]]></content>
+      <categories>
+        <category>Java(基础篇)</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo博客添加搜索功能]]></title>
     <url>%2F2018%2F04%2F13%2Fhexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2%E5%8A%9F%E8%83%BD%2F</url>
     <content type="text"><![CDATA[hexo博客添加搜索功能 前言 当博文慢慢变多的时候，标签和分类已经不能提供太大的作用，无法准确的定位到自己想要看的博客上去，所以添加一个本站内搜索功能是很有必要的。 安装插件直接在自己的博客文件夹下（我的是blog）点击鼠标右键选择Git Bash Here 1npm install hexo-generator-searchdb --save 修改站点配置文件我的路径是：blog下的_config.yml文件，进行编辑。 12345search： path: search.xml field: post format: html limit: 10000 PS:每个冒号后面都有空格。 修改主题配置文件我的路径：/blog/themes/next下的_config.yml文件，进行编辑。 12local_search: enable: true PS:冒号后面都有空格。 此时，部署到github，打开网页就可以看到搜索功能了，容易添加，使用起来很方便，推荐添加，增加网站友好度。]]></content>
