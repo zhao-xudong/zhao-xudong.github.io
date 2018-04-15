@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/04/12/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%A5%9E%E5%99%A8---valine/</loc>
+    <lastmod>2018-04-15T02:53:17.880Z</lastmod>
+    <data>
+        <display>
+        <title>hexo博客添加评论神器---valine</title>
+        <pubTime>2018-04-12T15:15:23.000Z</pubTime>
+        
+        <tag>博客搭建</tag>
+         
+        <tag>Valine</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客杂谈" url="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2018/04/15/%E4%BD%BF%E7%94%A8Java%E5%BA%93%E4%B8%AD%E7%9A%84%E7%B1%BB/</loc>
+    <lastmod>2018-04-15T02:52:32.869Z</lastmod>
+    <data>
+        <display>
+        <title>使用Java库中的类</title>
+        <pubTime>2018-04-15T02:52:23.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java(基础篇)" url="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/14/Java%E7%B1%BB%E5%A4%9A%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C/</loc>
     <lastmod>2018-04-14T01:47:51.454Z</lastmod>
     <data>
@@ -32,28 +74,6 @@
         <pubTime>2018-04-13T03:19:55.000Z</pubTime>
         
         <tag>博客搭建</tag>
-         
-         
-           
-             
-              <breadCrumb title="博客杂谈" url="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/04/12/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%A5%9E%E5%99%A8---valine/</loc>
-    <lastmod>2018-04-13T02:58:40.965Z</lastmod>
-    <data>
-        <display>
-        <title>hexo博客添加评论神器---valine</title>
-        <pubTime>2018-04-12T15:15:23.000Z</pubTime>
-        
-        <tag>博客搭建</tag>
-         
-        <tag>Valine</tag>
          
          
            

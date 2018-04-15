@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-14T01:47:51.454Z</updated>
+  <updated>2018-04-15T02:52:32.869Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Java库中的类</title>
+    <link href="http://yoursite.com/2018/04/15/%E4%BD%BF%E7%94%A8Java%E5%BA%93%E4%B8%AD%E7%9A%84%E7%B1%BB/"/>
+    <id>http://yoursite.com/2018/04/15/使用Java库中的类/</id>
+    <published>2018-04-15T02:52:23.000Z</published>
+    <updated>2018-04-15T02:52:32.869Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用Java库中的类"><a href="#使用Java库中的类" class="headerlink" title="使用Java库中的类"></a>使用Java库中的类</h1><hr><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h2><p><strong>java.util.Date</strong></p><p>+Date()            //为当前时间创建一个Date对象</p><p>+Date(elapseTime: long)//为一个从格林威治时间1970年1月1日至今流逝的以毫秒为单位计算的给定时间创建的Date对象</p><p>+toString(): String        //返回一个代表日期和时间的字符串表示</p><p>+getTime(): long        //返回从格林威治时间1970年1月1日至今流逝的毫秒数</p><p>+setTime(elapseTime: long): void    //在对象中设置一个新的流逝时间</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java.util.Date date = new java.util.Date();</span><br><span class="line">System.out.println(&quot;The elapsed time since Jan 1,1970 is&quot;+date.getTime()+&quot;milliseconds&quot;);</span><br><span class="line">System.out.println(date.toString());</span><br><span class="line">//输出：</span><br><span class="line">The elapsed time since Jan 1,1970 is1523760077427milliseconds</span><br><span class="line">Sun Apr 15 10:41:17 CST 2018</span><br></pre></td></tr></table></figure><h2 id="Random类"><a href="#Random类" class="headerlink" title="Random类"></a>Random类</h2><p><strong>java.util.Random</strong></p><p>+Random()        //以当前时间创建一个Random对象</p><p>+Random(seed: long)        //以一个特定的值作为种子创建一个Random对象</p><p>+nextInt(): int        //返回一个随机的int值</p><p>+nextInt(n: int): int        //返回一个0到n之间的随机int类型的数</p><p>+nextLong(): long            //返回一个0到n之间的随机long值</p><p>+nextDouble(): double    //返回一个0.0到1.0（不包含1.0）之间的随机double类型的值</p><p>+nextFloat(): float            //返回一个0.0F到1.0F（不包含1.0F）之间的随机float类型的值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">java.util.Random random1 = new java.util.Random(3);</span><br><span class="line">System.out.println(&quot;From random1:&quot;);</span><br><span class="line">for(int i=0;i&lt;10;i++)</span><br><span class="line">System.out.print(random1.nextInt(1000)+&quot; &quot;);</span><br><span class="line"></span><br><span class="line">java.util.Random random2 = new java.util.Random(3);</span><br><span class="line">System.out.println(&quot;\nFrom random2:&quot;);</span><br><span class="line">for(int i=0;i&lt;10;i++)</span><br><span class="line">System.out.print(random2.nextInt(1000)+&quot; &quot;);</span><br><span class="line"></span><br><span class="line">java.util.Random random3 = new java.util.Random();</span><br><span class="line">System.out.println(&quot;\nFrom random3:&quot;);</span><br><span class="line">for(int i=0;i&lt;10;i++)</span><br><span class="line">System.out.print(random3.nextInt(1000)+&quot; &quot;);</span><br><span class="line">//输出：</span><br><span class="line">From random1:</span><br><span class="line">734 660 210 581 128 202 549 564 459 961 </span><br><span class="line">From random2:</span><br><span class="line">734 660 210 581 128 202 549 564 459 961 </span><br><span class="line">From random3:</span><br><span class="line">384 412 586 796 729 521 52 718 586 355</span><br></pre></td></tr></table></figure><p>还有一个类，我们在下一篇文章介绍，有一点特殊。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;使用Java库中的类&quot;&gt;&lt;a href=&quot;#使用Java库中的类&quot; class=&quot;headerlink&quot; title=&quot;使用Java库中的类&quot;&gt;&lt;/a&gt;使用Java库中的类&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;Date类&quot;&gt;&lt;a href=&quot;#Date类&quot; clas
+      
+    
+    </summary>
+    
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java类多文件运行</title>
@@ -73,9 +99,9 @@
     <link href="http://yoursite.com/2018/04/12/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%A5%9E%E5%99%A8---valine/"/>
     <id>http://yoursite.com/2018/04/12/hexo博客添加评论神器---valine/</id>
     <published>2018-04-12T15:15:23.000Z</published>
-    <updated>2018-04-13T02:58:40.965Z</updated>
+    <updated>2018-04-15T02:53:17.880Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="hexo博客添加评论神器—valine"><a href="#hexo博客添加评论神器—valine" class="headerlink" title="hexo博客添加评论神器—valine"></a>hexo博客添加评论神器—valine</h1><hr><p>我们评论系统是放在LeanCloud上的，因此需要先去注册一个账号。</p><p>LeanCloud官网，点击注册<a href="https://leancloud.cn/" target="_blank" rel="noopener">https://leancloud.cn/</a></p><p>注册完成后需要创建一个应用，创建成功以后，<strong>进入应用→设置→应用key</strong></p><p>获取到了你的<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">App ID</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">每个app有一个唯一的ID，不可变更</span><br><span class="line"></span><br><span class="line">App Key</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">适用于所有平台</span><br></pre></td></tr></table></figure><p>拥有了你的<strong>appid</strong>和<strong>appkey</strong>后，打开<strong>主题配置文件</strong>（blog/themes/next/_config.yml）填写<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">valine：</span><br><span class="line">enable: true</span><br><span class="line">appid: your app id //你获取的appid</span><br><span class="line">appkey your app key //你获取的app key</span><br><span class="line">notifiy: false # mail notifier,https://github.com/xCss/Valine/wiki //是否开启邮箱提醒</span><br><span class="line">verfify: false # Verifaication code //开启验证码</span><br><span class="line">planceholde: 评论内容。 //你要发表的评论内容</span><br><span class="line">guest_info: nick,mail,link</span><br><span class="line">pageSize: 10</span><br></pre></td></tr></table></figure><p>PS：配置的时候自行删除”//“开始以后的注释内容，同时如果开启邮箱提醒的话，会默认开启验证码模式。</p><p>完成这些以后还需要在<strong>LeanCloud</strong>中，<strong>进入应用→设置→安全中心</strong>在Web 安全域名中填写自己的博客首页，然后保存。</p><p>最后部署到github，打开自己的博客就可以看到评论功能，有没有点小激动，快去邀请小伙伴发表评论吧。</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="hexo博客添加评论神器—valine"><a href="#hexo博客添加评论神器—valine" class="headerlink" title="hexo博客添加评论神器—valine"></a>hexo博客添加评论神器—valine</h1><hr><p>我们评论系统是放在LeanCloud上的，因此需要先去注册一个账号。</p><p><a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud官网，点击注册</a></p><p>注册完成后需要创建一个应用，创建成功以后，<strong>进入应用→设置→应用key</strong></p><p>获取到了你的<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">App ID</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">每个app有一个唯一的ID，不可变更</span><br><span class="line"></span><br><span class="line">App Key</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">适用于所有平台</span><br></pre></td></tr></table></figure><p>拥有了你的<strong>appid</strong>和<strong>appkey</strong>后，打开<strong>主题配置文件</strong>（blog/themes/next/_config.yml）填写<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">valine：</span><br><span class="line">enable: true</span><br><span class="line">appid: your app id //你获取的appid</span><br><span class="line">appkey your app key //你获取的app key</span><br><span class="line">notifiy: false # mail notifier,https://github.com/xCss/Valine/wiki //是否开启邮箱提醒</span><br><span class="line">verfify: false # Verifaication code //开启验证码</span><br><span class="line">planceholde: 评论内容。 //你要发表的评论内容</span><br><span class="line">guest_info: nick,mail,link</span><br><span class="line">pageSize: 10</span><br></pre></td></tr></table></figure><p>PS：配置的时候自行删除”//“开始以后的注释内容，同时如果开启邮箱提醒的话，会默认开启验证码模式。</p><p>完成这些以后还需要在<strong>LeanCloud</strong>中，<strong>进入应用→设置→安全中心</strong>在Web 安全域名中填写自己的博客首页，然后保存。</p><p>最后部署到github，打开自己的博客就可以看到评论功能，有没有点小激动，快去邀请小伙伴发表评论吧。</p>]]></content>
     
     <summary type="html">
     
