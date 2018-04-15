@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java" />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="世上本无事，庸人自扰之。">
-<meta name="keywords" content="前端博客,JavaScript,html5,css3,SQL,Ubuntu,Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="马里奥">
-<meta property="og:url" content="http://yoursite.com/archives/2018/03/index.html">
+<meta name="description" content="Java库中的Point2D类 javafx.geometry.Point2D +Point2D(x: double,y: double)        //用给定的x和y坐标来创建一个Point2D对象 +distance(x: double,y: double): double        //返回该点到定点（x,y）的距离 +distance(p: Point2D): double">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java库中的Point2D类">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/Java库中的Point2D类/index.html">
 <meta property="og:site_name" content="马里奥">
-<meta property="og:description" content="世上本无事，庸人自扰之。">
+<meta property="og:description" content="Java库中的Point2D类 javafx.geometry.Point2D +Point2D(x: double,y: double)        //用给定的x和y坐标来创建一个Point2D对象 +distance(x: double,y: double): double        //返回该点到定点（x,y）的距离 +distance(p: Point2D): double">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-15T03:04:38.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="马里奥">
-<meta name="twitter:description" content="世上本无事，庸人自扰之。">
+<meta name="twitter:title" content="Java库中的Point2D类">
+<meta name="twitter:description" content="Java库中的Point2D类 javafx.geometry.Point2D +Point2D(x: double,y: double)        //用给定的x和y坐标来创建一个Point2D对象 +distance(x: double,y: double): double        //返回该点到定点（x,y）的距离 +distance(p: Point2D): double">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/03/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/Java库中的Point2D类/"/>
 
 
 
 
 
-  <title>归档 | 马里奥</title>
+  <title>Java库中的Point2D类 | 马里奥</title>
   
 
 
@@ -146,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/zhao-xudong" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,185 +275,191 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/Java库中的Point2D类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="马里奥">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="马里奥">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Java库中的Point2D类</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T11:04:23+08:00">
+                2018-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 15 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-基础篇/" itemprop="url" rel="index">
+                    <span itemprop="name">Java(基础篇)</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/15/Java库中的Point2D类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/15/Java库中的Point2D类/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/19/Java中String类型的骚操作（2）/" itemprop="url">
-              
-                <span itemprop="name">Java中String类型的骚操作（2）</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-19T22:27:23+08:00"
-              content="2018-03-19" >
-          03-19
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/18/Java中String类型的骚操作/" itemprop="url">
-              
-                <span itemprop="name">Java中String类型的骚操作（1）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-18T20:23:34+08:00"
-              content="2018-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/14/非凡匠心/" itemprop="url">
-              
-                <span itemprop="name">非凡匠心</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-14T23:51:09+08:00"
-              content="2018-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/11/安卓简易计算器/" itemprop="url">
-              
-                <span itemprop="name">安卓简易计算器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-11T08:55:09+08:00"
-              content="2018-03-11" >
-          03-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="Java库中的Point2D类"><a href="#Java库中的Point2D类" class="headerlink" title="Java库中的Point2D类"></a>Java库中的Point2D类</h1><hr>
+<p><strong>javafx.geometry.Point2D</strong></p>
+<p>+Point2D(x: double,y: double)        //用给定的x和y坐标来创建一个Point2D对象</p>
+<p>+distance(x: double,y: double): double        //返回该点到定点（x,y）的距离</p>
+<p>+distance(p: Point2D): double        //返回该点到p点的距离</p>
+<p>+getX(): double                //返回该点的x的坐标</p>
+<p>+getY(): double                //返回该点的y的坐标</p>
+<p>+toString(): String                //返回该点的字符串表示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">import javafx.geometry.Point2D;</span><br><span class="line">public class TestPoint2D &#123;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">	</span><br><span class="line">	Scanner input= new Scanner(System.in);</span><br><span class="line">	System.out.println(&quot;Enter point1&apos;s x-,y-coordinates:&quot;);</span><br><span class="line">	double x1=input.nextDouble();</span><br><span class="line">	double y1=input.nextDouble();</span><br><span class="line">	System.out.println(&quot;Enter point2&apos;s x-,y-coordinates:&quot;);</span><br><span class="line">	double x2=input.nextDouble();</span><br><span class="line">	double y2=input.nextDouble();</span><br><span class="line">	Point2D p1 =new Point2D(x1,y1);</span><br><span class="line">	Point2D p2 =new Point2D(x2,y2);</span><br><span class="line">	System.out.println(&quot;p1 is&quot;+p1.toString());</span><br><span class="line">	System.out.println(&quot;p2 is&quot;+p2.toString());</span><br><span class="line">	System.out.println(&quot;distance is&quot;+p1.distance(p2));</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么会把这个类单拿出来呢，因为在<strong>eclipse</strong>运行的时候，你会发现会<strong>报错</strong>，难道是书写错了？不不不，下面是<strong>答案：</strong></p>
+<p>这是因为这个类是Eclipse的JRE带的，但并不属于JAVA的公开API。<br>解决方法：<br>右击项目-&gt;属性-&gt;Java Compiler-&gt;Errors/Warnings-&gt;Deprecated and restricted API-&gt;Forbidden reference -&gt; Ignore</p>
+<p><strong>运行结果</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Enter point1&apos;s x-,y-coordinates:</span><br><span class="line">1 2</span><br><span class="line">Enter point2&apos;s x-,y-coordinates:</span><br><span class="line">3 4</span><br><span class="line">p1 isPoint2D [x = 1.0, y = 2.0]</span><br><span class="line">p2 isPoint2D [x = 3.0, y = 4.0]</span><br><span class="line">distance is2.8284271247461903</span><br></pre></td></tr></table></figure>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/使用Java库中的类/" rel="next" title="使用Java库中的类">
+                <i class="fa fa-chevron-left"></i> 使用Java库中的类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -460,6 +467,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -480,8 +494,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -570,6 +593,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java库中的Point2D类"><span class="nav-number">1.</span> <span class="nav-text">Java库中的Point2D类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -757,6 +796,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

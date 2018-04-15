@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-15T02:52:32.869Z</updated>
+  <updated>2018-04-15T03:04:38.220Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java库中的Point2D类</title>
+    <link href="http://yoursite.com/2018/04/15/Java%E5%BA%93%E4%B8%AD%E7%9A%84Point2D%E7%B1%BB/"/>
+    <id>http://yoursite.com/2018/04/15/Java库中的Point2D类/</id>
+    <published>2018-04-15T03:04:23.000Z</published>
+    <updated>2018-04-15T03:04:38.220Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java库中的Point2D类"><a href="#Java库中的Point2D类" class="headerlink" title="Java库中的Point2D类"></a>Java库中的Point2D类</h1><hr><p><strong>javafx.geometry.Point2D</strong></p><p>+Point2D(x: double,y: double)        //用给定的x和y坐标来创建一个Point2D对象</p><p>+distance(x: double,y: double): double        //返回该点到定点（x,y）的距离</p><p>+distance(p: Point2D): double        //返回该点到p点的距离</p><p>+getX(): double                //返回该点的x的坐标</p><p>+getY(): double                //返回该点的y的坐标</p><p>+toString(): String                //返回该点的字符串表示</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">import javafx.geometry.Point2D;</span><br><span class="line">public class TestPoint2D &#123;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">Scanner input= new Scanner(System.in);</span><br><span class="line">System.out.println(&quot;Enter point1&apos;s x-,y-coordinates:&quot;);</span><br><span class="line">double x1=input.nextDouble();</span><br><span class="line">double y1=input.nextDouble();</span><br><span class="line">System.out.println(&quot;Enter point2&apos;s x-,y-coordinates:&quot;);</span><br><span class="line">double x2=input.nextDouble();</span><br><span class="line">double y2=input.nextDouble();</span><br><span class="line">Point2D p1 =new Point2D(x1,y1);</span><br><span class="line">Point2D p2 =new Point2D(x2,y2);</span><br><span class="line">System.out.println(&quot;p1 is&quot;+p1.toString());</span><br><span class="line">System.out.println(&quot;p2 is&quot;+p2.toString());</span><br><span class="line">System.out.println(&quot;distance is&quot;+p1.distance(p2));</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>为什么会把这个类单拿出来呢，因为在<strong>eclipse</strong>运行的时候，你会发现会<strong>报错</strong>，难道是书写错了？不不不，下面是<strong>答案：</strong></p><p>这是因为这个类是Eclipse的JRE带的，但并不属于JAVA的公开API。<br>解决方法：<br>右击项目-&gt;属性-&gt;Java Compiler-&gt;Errors/Warnings-&gt;Deprecated and restricted API-&gt;Forbidden reference -&gt; Ignore</p><p><strong>运行结果</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Enter point1&apos;s x-,y-coordinates:</span><br><span class="line">1 2</span><br><span class="line">Enter point2&apos;s x-,y-coordinates:</span><br><span class="line">3 4</span><br><span class="line">p1 isPoint2D [x = 1.0, y = 2.0]</span><br><span class="line">p2 isPoint2D [x = 3.0, y = 4.0]</span><br><span class="line">distance is2.8284271247461903</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Java库中的Point2D类&quot;&gt;&lt;a href=&quot;#Java库中的Point2D类&quot; class=&quot;headerlink&quot; title=&quot;Java库中的Point2D类&quot;&gt;&lt;/a&gt;Java库中的Point2D类&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;javaf
+      
+    
+    </summary>
+    
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Java库中的类</title>
