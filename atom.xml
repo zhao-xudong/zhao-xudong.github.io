@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-16T08:32:40.214Z</updated>
+  <updated>2018-04-16T15:19:45.389Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何解决安卓项目在Android Studio无法打开</title>
+    <link href="http://yoursite.com/2018/04/16/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%AE%89%E5%8D%93%E9%A1%B9%E7%9B%AE%E5%9C%A8Android%20Studio%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80/"/>
+    <id>http://yoursite.com/2018/04/16/如何解决安卓项目在Android Studio无法打开/</id>
+    <published>2018-04-16T15:19:16.000Z</published>
+    <updated>2018-04-16T15:19:45.389Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何解决安卓项目在Android-Studio无法打开"><a href="#如何解决安卓项目在Android-Studio无法打开" class="headerlink" title="如何解决安卓项目在Android Studio无法打开"></a>如何解决安卓项目在Android Studio无法打开</h1><hr><p>​    在github上下载一些安卓源码项目后，导入到Android Studio的时候无法导入，于是开始网上搜索大佬们的经验，为了避免忘记，还会自己写一篇博客吧，方便自己以后导入项目。</p><p>修改三处即可：</p><p>①build.gradle文件（在根目录下）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">        classpath &apos;com.android.tools.build:gradle:2.3.3&apos;//将此处版本号改为自己AS的版本</span><br><span class="line"></span><br><span class="line">        // NOTE: Do not place your application dependencies here; they belong</span><br><span class="line">        // in the individual module build.gradle files</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>​    如果不知道自己Android Studio的版本的话，新建一个项目，打开同样的文件查看。</p><p>②app文件夹中的build.gradle</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion 26//</span><br><span class="line">    buildToolsVersion &quot;26.0.1&quot;//</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId &quot;com.example.zhaoxudong.calculatorapp&quot;</span><br><span class="line">        minSdkVersion 14//</span><br><span class="line">        targetSdkVersion 26//</span><br><span class="line">        versionCode 1</span><br><span class="line">        versionName &quot;1.0&quot;</span><br><span class="line">        testInstrumentationRunner &quot;android.support.test.runner.AndroidJUnitRunner&quot;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><p>​    用//标注的地方，修改成跟自己Android Studio一样的。</p><p>③gradle/wrapper/gradle-wrapper.properties文件 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Mon Dec 28 10:00:20 PST 2015</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip//</span><br></pre></td></tr></table></figure><p>​    将//前面的/gadle-3.3-all.zip里面的数字改为与自己Android Studio一样的。</p><p>此时再从Android Studio中导入该项目就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;如何解决安卓项目在Android-Studio无法打开&quot;&gt;&lt;a href=&quot;#如何解决安卓项目在Android-Studio无法打开&quot; class=&quot;headerlink&quot; title=&quot;如何解决安卓项目在Android Studio无法打开&quot;&gt;&lt;/a&gt;如何解决安
+      
+    
+    </summary>
+    
+      <category term="Android编程" scheme="http://yoursite.com/categories/Android%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>BigInteger和BigDecimal类</title>
