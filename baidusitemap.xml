@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/04/16/this%E5%BC%95%E7%94%A8/</loc>
+    <lastmod>2018-04-16T06:29:12.347Z</lastmod>
+    <data>
+        <display>
+        <title>关键字this引用</title>
+        <pubTime>2018-04-16T06:28:56.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java(基础篇)" url="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/15/Java%E5%BA%93%E4%B8%AD%E7%9A%84Point2D%E7%B1%BB/</loc>
     <lastmod>2018-04-15T03:04:38.220Z</lastmod>
     <data>

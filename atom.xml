@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-15T03:04:38.220Z</updated>
+  <updated>2018-04-16T06:29:12.347Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关键字this引用</title>
+    <link href="http://yoursite.com/2018/04/16/this%E5%BC%95%E7%94%A8/"/>
+    <id>http://yoursite.com/2018/04/16/this引用/</id>
+    <published>2018-04-16T06:28:56.000Z</published>
+    <updated>2018-04-16T06:29:12.347Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="关键字this引用"><a href="#关键字this引用" class="headerlink" title="关键字this引用"></a>关键字this引用</h1><hr><p><strong>要点提示：</strong>关键字this引用独享自身。他也可以在构造方法内部调用另一个类的其他构造方法。</p><p>​    关键字this是指向调用对象本身的引用名。可以用this关键字引用对象的实例成员。</p><p>例如：下面a的代码使用this来显示地引用独享的radius以及调用他的getArea()方法。this引用通常可以省略掉的，如b所示。然而，在引用隐藏数据域的以及调用一个重载的构造方法的时候，this引用是必须的。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//a:</span><br><span class="line">public class Circle&#123;</span><br><span class="line">    private double radius;</span><br><span class="line">    .....</span><br><span class="line">    public double getArea() &#123;</span><br><span class="line">        return this.radius*this.radius*Math.PI;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;radius&quot;+this.radius+&quot;area&quot;+this.getArea();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//b:</span><br><span class="line">public class Circle&#123;</span><br><span class="line">    private double radius;</span><br><span class="line">    .....</span><br><span class="line">    public double getArea() &#123;</span><br><span class="line">        return radius*radius*Math.PI;</span><br><span class="line">    &#125;</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;radius&quot;+radius+&quot;area&quot;+getArea();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="使用this引用隐藏数据域"><a href="#使用this引用隐藏数据域" class="headerlink" title="使用this引用隐藏数据域"></a>使用this引用隐藏数据域</h2><p>​    this关键字可以用于引用类的隐藏数据域。例如在数据域set方法中，经常将数据域名用作参数名。在这种情况下，这个数据域在set方法中被隐藏。为了给他设置新值，需要在方法中引用隐藏的数据域名。隐藏的静态变量可以简单的通过“类名.静态变量”的方式引用。隐藏的实例变量就需要使用关键字this来引用了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class F &#123;</span><br><span class="line">    private int i = 5;</span><br><span class="line">    private static double k = 0;</span><br><span class="line">    public void setI(int i)&#123;</span><br><span class="line">        this.i = i;</span><br><span class="line">    &#125;</span><br><span class="line">    public static void setK(double k) &#123;</span><br><span class="line">        F.k = k;</span><br><span class="line">    &#125;</span><br><span class="line">    //other menthods omitted</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="使用this调用构造方法"><a href="#使用this调用构造方法" class="headerlink" title="使用this调用构造方法"></a>使用this调用构造方法</h2><p>​    关键字this可以用于调用同一个类的另一个构造方法。例如，可以如下改写Circle类：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public class Circle &#123;</span><br><span class="line">    private double radius;</span><br><span class="line">    public Circle(double radius) &#123;</span><br><span class="line">        tihs.radius = radius;//this关键字用于引用所构建的对象的隐藏数据radius</span><br><span class="line">    &#125;</span><br><span class="line">    public Circle() &#123;</span><br><span class="line">        tihs(1.0);//this关键字用来调用另一个构造方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>​    在第二个构造方法中，this(1.0)这一行调用带double值参数的第一个构造方法。</p><p><strong>注意：</strong>Java要求在构造方法中，语句this(参数列表)应在任何其他可执行语句之前出现。</p><p><strong>提示：</strong>如果一个类有多个构造方法，最好尽可能的使this(参数列表)实现它们。通常，无参数或参数少的构造方法可以用this(参数列表)调用参数多德构造方法。这样做通常可以简化代码，使类便于阅读和维护。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;关键字this引用&quot;&gt;&lt;a href=&quot;#关键字this引用&quot; class=&quot;headerlink&quot; title=&quot;关键字this引用&quot;&gt;&lt;/a&gt;关键字this引用&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;要点提示：&lt;/strong&gt;关键字this引用独享自身。他
+      
+    
+    </summary>
+    
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java库中的Point2D类</title>
