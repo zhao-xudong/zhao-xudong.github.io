@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-16T15:19:45.389Z</updated>
+  <updated>2018-04-17T16:04:03.652Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>StringBuilder-----修改StringBuilder中的字符串</title>
+    <link href="http://yoursite.com/2018/04/17/StringBuilder-----%E4%BF%AE%E6%94%B9StringBuilder%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://yoursite.com/2018/04/17/StringBuilder-----修改StringBuilder中的字符串/</id>
+    <published>2018-04-17T15:32:23.000Z</published>
+    <updated>2018-04-17T16:04:03.652Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="StringBuilder—–修改StringBuilder中的字符串"><a href="#StringBuilder—–修改StringBuilder中的字符串" class="headerlink" title="StringBuilder—–修改StringBuilder中的字符串"></a>StringBuilder—–修改StringBuilder中的字符串</h1><hr><p><strong>要点提示：</strong>StringBuilder和StringBuffer类似于String类，区别在于String类是不可变的。</p><p>​    一般只要使用字符的地方都可以使用StringBuilder和StringBuffer类，可以给一个StringBuilder和StringBuffer类中<strong>添加、插入或追加</strong>新的内容，而String不行。</p><p>多任务并发访问，就是用StringBuffer，因为这种情况下需要同步以防止StringBuffer崩溃。</p><p>单任务访问，使用StringBuilder更有效果。</p><p><strong>java.lang.StringBuilder</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+StringBuilder() //构建一个容量为16的字符串构建器</span><br><span class="line">+StringBuilder(capacity: int) //构建一个指定容量的字符串构建器</span><br><span class="line">+StringBuilder(s: String)//构建一个指定字符的字符串构建器</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+append(data: char[]): StringBuilder//追加一个字符数组到字符串构建器</span><br><span class="line">+append(data: char[],offset: int,len: int): StringBuilder//追加data中的子数组到字符串构建器</span><br><span class="line">+append(v: aPrimitiveType): StringBuilder//将一个基本类型值作为字符串追加到字符串构建器中</span><br><span class="line">+append(s: String): StringBuilder//追加一个字符串到字符串构建器</span><br><span class="line">+delete(startIndex: int,endIndex: int): StringBuilder//删除从startIndex到endIndex-1的字符</span><br><span class="line">+deleteCharAt(indexL int): StringBuilder//删除给定索引位置的字符</span><br><span class="line">+insert(index:int,data: char[],offset: int,len:int): StringBuilder//在字符串构建器的给定索引位置插入数组data的子数组</span><br><span class="line">+insert(offset: int,data: char[]): StringBuilder//向构建器偏移位置插入数据</span><br><span class="line">+insert(offset: int,b:a: PrimitiveType): StringBuilder//向该字符串构建器插入一个转换为字符串的值</span><br><span class="line">+replace(startIndex: int,endIndex: int,s: String): StringBuilder//将该构建器从startIndex到endIndex-1的位置的字符替换为给定的字符串</span><br><span class="line">+reverse(): StringBuilder//倒置构建器中的字符</span><br><span class="line">+setCharAt(index: int,ch: char): StringBuilder//将该构建器的指定索引位置设置为新的字符</span><br></pre></td></tr></table></figure><p>​    StringBuilder类提供了几个重载方法，可以将boolean、char、char数组、double、float、int、long和String类型值追加到字符串构建器。例如下面的代码将字符串和字符追加到stringBuilder，构成新的字符串”Welcome to Java”</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder stringBuilder=new StringBuilder();</span><br><span class="line">stringBuilder.append(&quot;Welcome&quot;);</span><br><span class="line">stringBuilder.append(&quot; &quot;);</span><br><span class="line">stringBuilder.append(&quot;to&quot;);</span><br><span class="line">stringBuilder.append(&quot; &quot;);</span><br><span class="line">stringBuilder.append(&quot;Java&quot;);</span><br></pre></td></tr></table></figure><p>​    StringBuilderl类也包括几个重载的方法，可以可以将boolean、char、char数组、double、float、int、long和String类型值追加到字符串构建器。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stringBuilder.insert(11,&quot;HTML and&quot;);</span><br></pre></td></tr></table></figure><p>接上条代码，新的stringBuilder就变成了”Welcome to HTML and Java”。</p><p>​    也可以使用两个delete方法将字符从构建器中的字符串中删除，使用reverse方法导致字符串，使用replace方法替换字符串中的字符，或者使用setCharAt方法在字符串中设置一个新字符。</p><p>假设应用下面方法前stringBuilder包含的是”Welcome to Java”。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">stringBuilder.delete(8,11);//将构建器变为Welcome Java</span><br><span class="line">stringBuilder.deleteCharAt(8);//将构建器变为Welcome o Java</span><br><span class="line">stringBuilder.reverse();//将构建器变为avaJ ot emocleW</span><br><span class="line">stringBuilder.replace(11,15,&quot;HTML&quot;);//将构建器变为Welcome to HTML</span><br><span class="line">stringBuilder.setCharAt(0,&apos;w&apos;);将构建器变为welcome to Java</span><br></pre></td></tr></table></figure><p>未完待续…………</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;StringBuilder—–修改StringBuilder中的字符串&quot;&gt;&lt;a href=&quot;#StringBuilder—–修改StringBuilder中的字符串&quot; class=&quot;headerlink&quot; title=&quot;StringBuilder—–修改Strin
+      
+    
+    </summary>
+    
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>如何解决安卓项目在Android Studio无法打开</title>
