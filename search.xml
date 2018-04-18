@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[测试image]]></title>
+    <url>%2F2018%2F04%2F19%2F%E6%B5%8B%E8%AF%95image%2F</url>
+    <content type="text"><![CDATA[用电脑桌面进行一波测试]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[判断回文串时忽略既非字母又非数字的字符]]></title>
     <url>%2F2018%2F04%2F18%2F%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E4%B8%B2%E6%97%B6%E5%BF%BD%E7%95%A5%E6%97%A2%E9%9D%9E%E5%AD%97%E6%AF%8D%E5%8F%88%E9%9D%9E%E6%95%B0%E5%AD%97%E7%9A%84%E5%AD%97%E7%AC%A6%2F</url>
     <content type="text"><![CDATA[判断回文串时忽略既非字母又非数字的字符 问题及解决办法​ 1.question：通过删除既非字母有非数字的字符过滤这个字符串。answer：创建一个新的空字符串构建器，将字符串中每一个字母或数字字符添加到字符串构建器中，然后从这个构建器返回所求的字符串。可以使用Character类中的isLetterOrDigit(ch)方法来检测字符ch是否是数字或字母。 ​ 2.question：倒置过滤后的字符串得到一个新字符串。使用equal方法对倒置后的字符串和过滤后的字符串进行比较。 完整程序PalindromeIgnoreNonAlphanumeric.java 1234567891011121314151617181920212223242526272829303132import java.util.Scanner;public class PalindromeIgnoreNonAlphanumeric &#123; public static void main(String[] args)&#123; Scanner input = new Scanner(System.in); System.out.println(&quot;Enter a string:&quot;); String s = input.nextLine(); System.out.println(&quot;Ignoring nonalphanumeric characters,\nis &quot;+s+&quot; a palindrome? &quot;+isPalindrome(s)); &#125; public static boolean isPalindrome(String s)&#123; String s1=filter(s); String s2=reverse(s1); return s2.equals(s1); &#125; public static String filter(String s)&#123; StringBuilder stringBuilder = new StringBuilder(); for(int i=0;i&lt;s.length();i++) &#123; if(Character.isLetterOrDigit(s.charAt(i)))&#123; stringBuilder.append(s.charAt(i)); &#125; &#125; return stringBuilder.toString(); &#125; public static String reverse(String s)&#123; StringBuilder stringBuilder=new StringBuilder(s); stringBuilder.reverse(); return stringBuilder.toString(); &#125;&#125; 输出： 12345678910//ex1:Enter a string:ab&lt;c&gt;b?aIgnoring nonalphanumeric haracters,is ab&lt;c&gt;b?a a palindrome? true//ex2:Enter a string:abcc&gt;&lt;?cabIgnoring nonalphanumeric haracters,is abcc&gt;&lt;?cab a palindrome? false ​ filter(String s)方法逐个检查字符串s中的每个字符，如果字符是字母或者数字字符，就将他复制到字符串构建器。filter方法返回构建器中的字符串。reverse(String s)方法创建一个新字符串，这个新串是对给定字符串s的倒置。filter方法和reverse方法都会返回一个新字符串，原始字符串并没有改变。]]></content>
