@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-18T16:23:07.620Z</updated>
+  <updated>2018-04-19T01:14:15.028Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,25 +17,28 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>测试image</title>
-    <link href="http://yoursite.com/2018/04/19/%E6%B5%8B%E8%AF%95image/"/>
-    <id>http://yoursite.com/2018/04/19/测试image/</id>
-    <published>2018-04-18T16:20:02.000Z</published>
-    <updated>2018-04-18T16:23:07.620Z</updated>
+    <title>给自己的博客加上图片</title>
+    <link href="http://yoursite.com/2018/04/19/%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E5%9B%BE%E7%89%87/"/>
+    <id>http://yoursite.com/2018/04/19/给自己的博客加上图片/</id>
+    <published>2018-04-19T00:38:40.000Z</published>
+    <updated>2018-04-19T01:14:15.028Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/2018/04/19/测试image/576452.jpg" alt=""></p><p>用电脑桌面进行一波测试</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="给自己的博客加上图片"><a href="#给自己的博客加上图片" class="headerlink" title="给自己的博客加上图片"></a>给自己的博客加上图片</h1><hr><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>写博客的时候，有时候图片比文字更有说服力，比如：代码运行结果，本来一张图片解决的事情，不用图片的话，就得自己敲结果，然而别人不一定能看懂，这就非常尴尬了，所以说，在某些时候图片的说服力还是很强大的，比如下面这张表达的意思。</p><p><img src="/2018/04/19/给自己的博客加上图片/sousuo.jpg" alt="嘤嘤嘤"></p><p>​    言归正传，我下面介绍一下我比较相中的办法，因为不用借助七牛等等，当然相比较而言的优缺点就忽略吧。</p><h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>1.首先把blog（hexo）目录下的_config.yml里的psot_asset_folder:设置为true</p><p>2.在blog（hexo）目录下执行:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure><p>3.在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。</p><p>4.将想要上传的图片先扔到文件夹下，然后在博客中使用markdown的格式引入图片：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想要输入的替代文字](xxxx/图片名.jpg)</span><br></pre></td></tr></table></figure><p>ps：因为博客名和文件夹名字相同，所以不需要绝对路径，只要xxxx是文件夹的名字就可以了。</p><p>5.然后，使用hexo g部署的时候，进入public\2018\04\19\index.html文件中查看相关字段，可以发现html标签内的语句是<strong>img src = “2018/04/19/xxxx/图片名.jpg”</strong>而不是<strong>img src=”xxxx.图片名.jpg”</strong>，这就成功了，当然前面步骤操作正确的话，这一步也不用检查。</p><p>​    最后放一张帅照，并感谢<a href="https://blog.csdn.net/sugar_rainbow/article/details/57415705" target="_blank" rel="noopener">Nubb</a>，为你引流233333。</p><p><img src="/2018/04/19/给自己的博客加上图片/576452.jpg" alt="桌面"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;&lt;img src=&quot;/2018/04/19/测试image/576452.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;用电脑桌面进行一波测试&lt;/p&gt;
-
+        &lt;h1 id=&quot;给自己的博客加上图片&quot;&gt;&lt;a href=&quot;#给自己的博客加上图片&quot; class=&quot;headerlink&quot; title=&quot;给自己的博客加上图片&quot;&gt;&lt;/a&gt;给自己的博客加上图片&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;hea
       
     
     </summary>
     
+      <category term="博客杂谈" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   

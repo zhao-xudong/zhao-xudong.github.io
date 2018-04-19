@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[测试image]]></title>
-    <url>%2F2018%2F04%2F19%2F%E6%B5%8B%E8%AF%95image%2F</url>
-    <content type="text"><![CDATA[用电脑桌面进行一波测试]]></content>
+    <title><![CDATA[给自己的博客加上图片]]></title>
+    <url>%2F2018%2F04%2F19%2F%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E5%9B%BE%E7%89%87%2F</url>
+    <content type="text"><![CDATA[给自己的博客加上图片 前言写博客的时候，有时候图片比文字更有说服力，比如：代码运行结果，本来一张图片解决的事情，不用图片的话，就得自己敲结果，然而别人不一定能看懂，这就非常尴尬了，所以说，在某些时候图片的说服力还是很强大的，比如下面这张表达的意思。 ​ 言归正传，我下面介绍一下我比较相中的办法，因为不用借助七牛等等，当然相比较而言的优缺点就忽略吧。 解决办法1.首先把blog（hexo）目录下的_config.yml里的psot_asset_folder:设置为true 2.在blog（hexo）目录下执行: 1npm install hexo-asset-image --save 3.在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。 4.将想要上传的图片先扔到文件夹下，然后在博客中使用markdown的格式引入图片： 1![你想要输入的替代文字](xxxx/图片名.jpg) ps：因为博客名和文件夹名字相同，所以不需要绝对路径，只要xxxx是文件夹的名字就可以了。 5.然后，使用hexo g部署的时候，进入public\2018\04\19\index.html文件中查看相关字段，可以发现html标签内的语句是img src = “2018/04/19/xxxx/图片名.jpg”而不是img src=”xxxx.图片名.jpg”，这就成功了，当然前面步骤操作正确的话，这一步也不用检查。 ​ 最后放一张帅照，并感谢Nubb，为你引流233333。]]></content>
+      <categories>
+        <category>博客杂谈</category>
+      </categories>
+      <tags>
+        <tag>博客搭建</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[判断回文串时忽略既非字母又非数字的字符]]></title>
