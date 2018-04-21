@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="toString、capacity、length、setlength和charAt方法 ​    StringBuilder类提供了许多其他处理字符串构建器和获取它的属性的办法。 java.lang.StringBuilder 12345678+toString(): String			//从字符串构建器返回一个字符串对象+capacity(): int			//返回该字符串构建器的容量+char">
+<meta name="description" content="ArrayList类 java.util.ArrayList +ArrayList()                //返回一个空的列表 +add(o:E): void            //添加一个新元素o到列表末尾 +add(index: int,o: E): void     //添加一个新元素o到该列表的指定下标位置 +clear(): void                //清">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="toString、capacity、length、setlength和charAt方法">
-<meta property="og:url" content="http://yoursite.com/2018/04/18/toString、capacity、length、setlength和charAt方法/index.html">
+<meta property="og:title" content="ArrayList类">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/ArrayList类/index.html">
 <meta property="og:site_name" content="马里奥">
-<meta property="og:description" content="toString、capacity、length、setlength和charAt方法 ​    StringBuilder类提供了许多其他处理字符串构建器和获取它的属性的办法。 java.lang.StringBuilder 12345678+toString(): String			//从字符串构建器返回一个字符串对象+capacity(): int			//返回该字符串构建器的容量+char">
+<meta property="og:description" content="ArrayList类 java.util.ArrayList +ArrayList()                //返回一个空的列表 +add(o:E): void            //添加一个新元素o到列表末尾 +add(index: int,o: E): void     //添加一个新元素o到该列表的指定下标位置 +clear(): void                //清">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T06:18:58.525Z">
+<meta property="og:updated_time" content="2018-04-21T16:36:42.586Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="toString、capacity、length、setlength和charAt方法">
-<meta name="twitter:description" content="toString、capacity、length、setlength和charAt方法 ​    StringBuilder类提供了许多其他处理字符串构建器和获取它的属性的办法。 java.lang.StringBuilder 12345678+toString(): String			//从字符串构建器返回一个字符串对象+capacity(): int			//返回该字符串构建器的容量+char">
+<meta name="twitter:title" content="ArrayList类">
+<meta name="twitter:description" content="ArrayList类 java.util.ArrayList +ArrayList()                //返回一个空的列表 +add(o:E): void            //添加一个新元素o到列表末尾 +add(index: int,o: E): void     //添加一个新元素o到该列表的指定下标位置 +clear(): void                //清">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/18/toString、capacity、length、setlength和charAt方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/22/ArrayList类/"/>
 
 
 
 
 
-  <title>toString、capacity、length、setlength和charAt方法 | 马里奥</title>
+  <title>ArrayList类 | 马里奥</title>
   
 
 
@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/18/toString、capacity、length、setlength和charAt方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/ArrayList类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="马里奥">
@@ -306,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">toString、capacity、length、setlength和charAt方法</h1>
+          <h1 class="post-title" itemprop="name headline">ArrayList类</h1>
         
 
         <div class="post-meta">
@@ -318,8 +318,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-18T14:18:22+08:00">
-                2018-04-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T00:18:23+08:00">
+                2018-04-22
               </time>
             
 
@@ -359,8 +359,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/04/18/toString、capacity、length、setlength和charAt方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/18/toString、capacity、length、setlength和charAt方法/" itemprop="commentCount"></span>
+                <a href="/2018/04/22/ArrayList类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/04/22/ArrayList类/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,13 +388,37 @@
       
 
       
-        <h1 id="toString、capacity、length、setlength和charAt方法"><a href="#toString、capacity、length、setlength和charAt方法" class="headerlink" title="toString、capacity、length、setlength和charAt方法"></a>toString、capacity、length、setlength和charAt方法</h1><hr>
-<p>​    StringBuilder类提供了许多其他处理字符串构建器和获取它的属性的办法。</p>
-<p><strong>java.lang.StringBuilder</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+toString(): String			//从字符串构建器返回一个字符串对象</span><br><span class="line">+capacity(): int			//返回该字符串构建器的容量</span><br><span class="line">+charAt(index: int): char	//返回指定索引位置的字符</span><br><span class="line">+length(): int				//返回该构建器中的字符数</span><br><span class="line">+setLength(newLength: int): void//设置该构建器的新长度</span><br><span class="line">+substring(startIndex: int): String//返回从startIndex开始的字符串</span><br><span class="line">+substring(startIndex: int,endIndex: int):String//返回从startIndex开始endIndex结束的子字符串</span><br><span class="line">+trimToSize(): void			//减少用于字符串构建器的存储大小</span><br></pre></td></tr></table></figure>
-<p>​    capacity()方法返回字符串构建器当前的容量。容量是指在不增加构建器大小的情况下存储的字符数量。</p>
-<p>​    length()方法返回字符串构建器中实际存储的字符数量，setLength(newLength)方法设置字符串构建器的长度。如果参数newLength小于字符串构建器当前的长度，则字符串构建器会被截短到恰好能包含由参数newLength给定的字符个数。如果参数newLength大于或者等于当前长度，则给字符串构建器追加足够多的空字符(‘\u0000’),使其长度length变成新参数newLength。参数newLength必须大于等于0。</p>
-<p>​    charAt(index)方法返回字符串构建器中某个特定下标index的字符。下标是基于0的，字符串构建器中的第一个字符的下标为0，第二个字符下标为1，以此类推。参数index必须大于或等于0，并且小于字符串构建器的长度。</p>
+        <h1 id="ArrayList类"><a href="#ArrayList类" class="headerlink" title="ArrayList类"></a>ArrayList类</h1><hr>
+<p>java.util.ArrayList<e></e></p>
+<p>+ArrayList()                //返回一个空的列表</p>
+<p>+add(o:E): void            //添加一个新元素o到列表末尾</p>
+<p>+add(index: int,o: E): void     //添加一个新元素o到该列表的指定下标位置</p>
+<p>+clear(): void                //清除列表所有元素</p>
+<p>+contains(o: Object)        //如果该列表有o，返回true</p>
+<p>+get(index: int): E            //返回该列表指定下标位置的元素</p>
+<p>+indexOf(o: Object): int    //返回列表中第一个匹配元素的下标</p>
+<p>+isEmpty(): boolean        //如果该列表不包括任何元素，返回true</p>
+<p>+lastIndexOf(o: Object): int    //返回列表中匹配的最后一个元素的下标</p>
+<p>+remove(o: Object): boolean        //去除列表的第一个元素，如果该元素被去除，则返回true</p>
+<p>+size(): int                    //返回列表中元素个数</p>
+<p>+remove(index: int): E            //去除指定下标位置的元素，如果该元素被去除，则返回true</p>
+<p>set(index: int,o: E): E            //设置指定下标位置的元素</p>
+<p>程序清单：TestArrayList.java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package ohhh;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">public class TestArrayList &#123;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">	ArrayList&lt;String&gt; cityList = new ArrayList&lt;&gt;();</span><br><span class="line">	</span><br><span class="line">	cityList.add(&quot;London&quot;);//添加London</span><br><span class="line">	cityList.add(&quot;Denver&quot;);//添加Denver</span><br><span class="line">	cityList.add(&quot;Paris&quot;);//添加Paris</span><br><span class="line">	cityList.add(&quot;Miami&quot;);//添加Miami</span><br><span class="line">	cityList.add(&quot;Seoul&quot;);//添加Seoul</span><br><span class="line">	cityList.add(&quot;Tokyo&quot;);//添加Tokyo</span><br><span class="line">	</span><br><span class="line">	System.out.println(&quot;List size? &quot;+cityList.size());//列表元素数</span><br><span class="line">	System.out.println(&quot;Is Miami in the list? &quot;+cityList.contains(&quot;Miami&quot;));//是否有Miami</span><br><span class="line">	System.out.println(&quot;The location of Denver in the list? &quot;+cityList.indexOf(&quot;Denver&quot;));//Denver的下标</span><br><span class="line">	System.out.println(&quot;Is the list empty? &quot;+cityList.isEmpty());//列表是否为空</span><br><span class="line">	cityList.add(2, &quot;Xian&quot;);//下标为2添加Xian</span><br><span class="line">	cityList.remove(&quot;remove&quot;);//抹除</span><br><span class="line">	cityList.remove(1);//抹除下标为1的</span><br><span class="line">	System.out.println(cityList.toString());//输出cityList列表</span><br><span class="line">	for(int i=cityList.size()-1;i&gt;=0;i--)</span><br><span class="line">		System.out.print(cityList.get(i));//输出列表里的所有元素</span><br><span class="line">	System.out.println();</span><br><span class="line">	ArrayList&lt;CircleFromSimpleGeometricObject&gt; list= new ArrayList&lt;&gt;();</span><br><span class="line">	list.add(new CircleFromSimpleGeometricObject(2));</span><br><span class="line">	list.add(new CircleFromSimpleGeometricObject(3));</span><br><span class="line">	System.out.println(&quot;The area of the first circle? &quot;+list.get(0).getArea());</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List size? 6</span><br><span class="line">Is Miami in the list? true</span><br><span class="line">The location of Denver in the list? 1</span><br><span class="line">Is the list empty? false</span><br><span class="line">[London, Xian, Paris, Miami, Seoul, Tokyo]</span><br><span class="line">TokyoSeoulMiamiParisXianLondon</span><br><span class="line">The area of the first circle? 0.0</span><br></pre></td></tr></table></figure>
+<p><strong>对列表有用的方法</strong></p>
+<p>Array类中的静态方法asList返回一个列表，该列表传递给ArrayList的构造方法用于创建一个ArrayList。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] array = &#123;&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;&#125;;</span><br><span class="line">ArrayList&lt;String&gt; list=new ArrayList&lt;&gt;(Array.asList(array));</span><br></pre></td></tr></table></figure>
+<p>反过来也可以使用list.toArray(array1)从数组列表创建一个对象数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] array1 = new String[list.size()];</span><br><span class="line">list.toArray(array1);</span><br></pre></td></tr></table></figure>
+<p>如果列表中的元素是可比较的，比如整数、双精度浮点数或者字符串 ，则可以使用java.util.Collections类中的静态方法sort方法来对元素进行排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer[] array = &#123;3,5,95,4,15,34,3,6,5&#125;;</span><br><span class="line">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(Array.asList(array));</span><br><span class="line">java.util.Collections(list);</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+<p>可以使用java.util.Collections类中的静态的max和min方法来返回列表中的最大和最小元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer[] array = &#123;3,5,95,4,15,34,3,6,5&#125;;</span><br><span class="line">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(Array.asList(array));</span><br><span class="line">System.out.println(java.util.Collections.max(list));</span><br><span class="line">System.out.println(java.util.Collections.min(list));</span><br></pre></td></tr></table></figure>
+<p>可以使用java.util.Collections类中的静态方法shuffle方法来随机打乱列表的元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Integer[] array = &#123;3,5,95,4,15,34,3,6,5&#125;;</span><br><span class="line">ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;(Array.asList(array));</span><br><span class="line">java.util.Collection.shuffle(list);</span><br><span class="line">System.out.println(list);</span><br></pre></td></tr></table></figure>
+<p>完结。</p>
 
       
     </div>
@@ -414,6 +438,8 @@
           
             <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
           
+            <a href="/tags/ArrayList/" rel="tag"><i class="fa fa-tag"></i> ArrayList</a>
+          
         </div>
       
 
@@ -425,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/17/StringBuilder-----修改StringBuilder中的字符串/" rel="next" title="StringBuilder-----修改StringBuilder中的字符串">
-                <i class="fa fa-chevron-left"></i> StringBuilder-----修改StringBuilder中的字符串
+              <a href="/2018/04/21/动态绑定/" rel="next" title="动态绑定">
+                <i class="fa fa-chevron-left"></i> 动态绑定
               </a>
             
           </div>
@@ -434,10 +460,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/18/判断回文串时忽略既非字母又非数字的字符/" rel="prev" title="判断回文串时忽略既非字母又非数字的字符">
-                判断回文串时忽略既非字母又非数字的字符 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#toString、capacity、length、setlength和charAt方法"><span class="nav-number">1.</span> <span class="nav-text">toString、capacity、length、setlength和charAt方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ArrayList类"><span class="nav-number">1.</span> <span class="nav-text">ArrayList类</span></a></li></ol></div>
             
 
           </div>
