@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-19T01:14:15.028Z</updated>
+  <updated>2018-04-21T11:49:51.523Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动态绑定</title>
+    <link href="http://yoursite.com/2018/04/21/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A/"/>
+    <id>http://yoursite.com/2018/04/21/动态绑定/</id>
+    <published>2018-04-21T11:14:57.000Z</published>
+    <updated>2018-04-21T11:49:51.523Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="动态绑定"><a href="#动态绑定" class="headerlink" title="动态绑定"></a>动态绑定</h1><p><strong>要点提示：</strong>方法可以沿着继承链的多个类中实现。JVM决定运行时调用哪个方法。</p><p>​    方法可以在父类中定义而在子类中重写。例如：toString()方法在Object类中定义的，而在GeometricObject类中重写。思考下面代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object o =new GeometricObject();</span><br><span class="line">System.out.println(o.toString());</span><br></pre></td></tr></table></figure><p>​    这里的o调用哪个toString()呢？为了回答这个问题，我们首先介绍两个术语：声明类型和实际类型。一个变量必须被声明为某种类型。变量的这个类型成为它的<strong>声明类型</strong>（declared type）。这里，o的声明类型是Object。一个引用类型变量可以是一个null值或者一个对声明类型实例的引用。实例可以使用声明类型或它的子类型的构造方法创建。变量的<strong>实际类型</strong>（actual type）是被变量引用的对象的实际类。这里，o的实际类型是GeometricObject,因为o指向使用new GeometricObject()创建的对象。o调用哪个toString()方法由o的实际类型决定。这成为<strong>动态绑定</strong>。</p><p>​    <strong>动态绑定的工作机制</strong>如下：假设对象o是类C1，C2，….，Cn的实例，其中C1是C2的子类，C2是C3的子类…Cn-1是Cn的子类，也就是说Cn是最通用类，C1是最特殊的类。在Java中，Cn是Object类。如果对象o调用一个方法p，那么JVM会依次在类C1，C2，….，Cn-1，Cn中查找方法p的实现，直到找到为止。一旦找到就实现，就停止查找，然后使用首先找到的实现。</p><p>DynamicBindingDemo.java</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package ohhh;</span><br><span class="line"></span><br><span class="line">public class DynamicBindingDemo&#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        m(new GraduateStudent());</span><br><span class="line">        m(new Student());</span><br><span class="line">        m(new Person());</span><br><span class="line">        m(new Object());</span><br><span class="line">    &#125;</span><br><span class="line">    public static void m(Object x)&#123;</span><br><span class="line">        System.out.println(x.toString());</span><br><span class="line">    &#125;</span><br><span class="line">    public static class GraduateStudent extends Student&#123;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">    public static class Student extends Person&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public String toString()&#123;</span><br><span class="line">            return &quot;Student&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public static class Person extends Object&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public String toString()&#123;</span><br><span class="line">            return &quot;Person&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="/2018/04/21/动态绑定/qwe.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;动态绑定&quot;&gt;&lt;a href=&quot;#动态绑定&quot; class=&quot;headerlink&quot; title=&quot;动态绑定&quot;&gt;&lt;/a&gt;动态绑定&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;要点提示：&lt;/strong&gt;方法可以沿着继承链的多个类中实现。JVM决定运行时调用哪个方法。&lt;/p&gt;
+&lt;p&gt;
+      
+    
+    </summary>
+    
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>给自己的博客加上图片</title>
@@ -516,34 +542,6 @@
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="SHELL" scheme="http://yoursite.com/tags/SHELL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux下目录及其操作命令</title>
-    <link href="http://yoursite.com/2017/12/17/Linux%E4%B8%8B%E7%9B%AE%E5%BD%95%E5%8F%8A%E5%85%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/"/>
-    <id>http://yoursite.com/2017/12/17/Linux下目录及其操作命令/</id>
-    <published>2017-12-17T13:23:34.000Z</published>
-    <updated>2018-04-12T02:02:28.335Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Linux下目录及其操作命令"><a href="#Linux下目录及其操作命令" class="headerlink" title="Linux下目录及其操作命令"></a>Linux下目录及其操作命令</h1><hr><h2 id="创建和删除目录的命令"><a href="#创建和删除目录的命令" class="headerlink" title="创建和删除目录的命令"></a>创建和删除目录的命令</h2><h3 id="mkdir命令"><a href="#mkdir命令" class="headerlink" title="mkdir命令"></a>mkdir命令</h3><p>用来创建目录。</p><p>-m, –more=MORE 将新建目录的存取权限设置为MORE,存取权限用给定的八进制数字表示。</p><p>-p, –panrents 可一次性建立多个目录，即如果新建目录所指定的路径中有些父目录尚不存在，此选项可以自动建立他们。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir --more=700 /home/mengqc/test (在目录/home/mengqc下建立子目录test，并且只有文件主有读、写和执行权限，其他人无权访问)</span><br><span class="line">$ mkdir -p -m 750 bin/os_1 (在当前目录中建立bin和bin下的os_1目录，权限设置为文件主可读、写执行，用户组可读和执行，其他用户无权访问)</span><br></pre></td></tr></table></figure><h3 id="rmdir命令"><a href="#rmdir命令" class="headerlink" title="rmdir命令"></a>rmdir命令</h3><p>从一个目录中删除一个或多个空的子目录。</p><p>-p –parents 递归删除目录dirname，当子目录删除后其父目录为空时，也一同被删除。如果有非空目录，则该目录保留下来。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd /home/mengqc/test</span><br><span class="line">rmdir -p bin/os_1 (删除子目录os_1和其父目录bin)</span><br></pre></td></tr></table></figure><h2 id="改变工作目录和显示目录内容的命令"><a href="#改变工作目录和显示目录内容的命令" class="headerlink" title="改变工作目录和显示目录内容的命令"></a>改变工作目录和显示目录内容的命令</h2><h3 id="cd命令"><a href="#cd命令" class="headerlink" title="cd命令"></a>cd命令</h3><p>改变工作目录。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /home/liu (将当前目录改到/home/liu)</span><br><span class="line">$ cd (将当前目录改到用户的主目录)</span><br><span class="line">$ cd ../..  (将当前目录向上移动两级)</span><br></pre></td></tr></table></figure><h3 id="pwd命令"><a href="#pwd命令" class="headerlink" title="pwd命令"></a>pwd命令</h3><p>显示当前工作目录的绝对路径。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pwd</span><br><span class="line">/home/mengqc</span><br></pre></td></tr></table></figure><h3 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h3><p>列出指定目录的内容。</p><p>-a, –all 显示指定目录下所有子目录和文件，包括”.”开头的隐藏文件（例如.cshrc）。</p><p>-A, –almost-all 显示指定目录下所有子目录和文件，包括”.”开头的隐藏文件，但是列出”.”和”..”目录项</p><p>-b, –escape 当文件名中包含不可显示的字符时，则用\ddd（3位八进制数）形式显示该字符。</p><p>-c 按文件的修改时间排序</p><p>-C 分成多列显示项目</p><p>-d 如果参数是目录，则只显示它的名字，往往与-l选项一起用，以得到目录的详细信息。</p><p>-i, –inode 在输出的第一行显示文件的I节点号。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ls -F (列出当前目录的内容，并标出文件的属性)</span><br><span class="line">Desktop/ ex1 ex2 m1.c m2.c test/</span><br><span class="line">$ ls -C /home/mengqc (按多列形式列出目录/home/mengqc的内容)</span><br><span class="line">$ ls -lai (以长列表格式列出当前目录的内容，包含隐藏文件和他们的I节点号)</span><br></pre></td></tr></table></figure><h2 id="链接文件的命令"><a href="#链接文件的命令" class="headerlink" title="链接文件的命令"></a>链接文件的命令</h2><h3 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h3><p>建立硬链接时，在别的目录或者本目录中增加目标文件的一个目录项，这样一个文件就登记在多个目录中。创建硬链接后，已经存在的文件的I节点号（Inode）会被多个目录文件项使用。</p><p>对硬链接有如下限制：</p><p>①不能对目录文件创建硬链接。</p><p>②不能在不同的文件系统之间创建硬链接。就是说链接文件和被链接文件必须位于同一个文件系统中。</p><h3 id="符号链接"><a href="#符号链接" class="headerlink" title="符号链接"></a>符号链接</h3><p>符号链接也称为软链接，是将一个路径名链接到另一个文件。这些文件是一种特别类型的文件。事实上，他只是一个文本文件，其中包含了它提供链接的另一个文件的路径名，另一个文件是实际包含所有数据的文件。所有读写文件内容的命令被用于符号链接时，将沿着链接方向前进来访问实际的文件。</p><h3 id="ln命令"><a href="#ln命令" class="headerlink" title="ln命令"></a>ln命令</h3><p>用来创建链接。</p><p>-s, –symbolic 建立符号链接，而不是硬链接。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd /home/mengqc</span><br><span class="line">$ ln mub1/m2.c /home/liu/a2.c (将目录/home/mengqc/mub1下的文件m2.c链接到目录/home/liu下的文件a2.c)</span><br><span class="line">$ ln -s /home/mengqc/mub1 /home/liu/abc (在目录/home/liu下建立一个符号链接文件abc，使他指向目录/home/mengqc/mub1)</span><br></pre></td></tr></table></figure><h2 id="改变文件或目录存取权限的命令"><a href="#改变文件或目录存取权限的命令" class="headerlink" title="改变文件或目录存取权限的命令"></a>改变文件或目录存取权限的命令</h2><h3 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h3><p>（1）文件主</p><p>Linux为每个文件都分配一个文件所有者，成为文件主，并赋予文件主唯一的注册名。对文件的控制取决于文件主或超级用户（root）</p><p>文件或目录的创建者对创建的文件或目录拥有特别使用权。</p><p>文件的所有关系是可以改变的，可以将文件或目录的所有权转让给其他用户，但只有文件主或者超级用户才有权改变文件的所有关系。文件所有权的标志是用户ID(UID).</p><p>（2）用户组</p><p>当系统给管理员为用户建立账号后，会分配一个组ID合一个特定的用户组名。</p><p>（3）存取权限</p><p>Linux系统中的每个文件和目录都有存取许可权限，用它来确定谁可以通过何种方式对文件和目录进行访问和操作。</p><p>Linux系统规定了4中不同类型的用户：①文件主（owner）②同组用户（group）③可以访问系统的其他用户（others）④超级用户（root）</p><p>存取权限规定了3中访问文件或者目录的方式：①读（r）②写（w）③可执行或查询（x）。</p><h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a>chmod命令</h3><p>用于改变或者设置文件或目录的存取权限。</p><p>一般格式：chmod key 文件名</p><p>key：who  操作符号 mode</p><p>[who]:</p><p>u 用户（user），即文件或目录的所有者</p><p>g 同组（group）用户，即与文件属主有相同组ID的所有用户</p><p>o 其他（others）用户，</p><p>a 所有（all）用户。他是系统默认值</p><p>[操作符号]:</p><p>+添加某个权限</p><p>-取消某个权限</p><p>=赋予给定权限并取消原有权限</p><p>[mode]:</p><p>r 可读</p><p>w 可写</p><p>x 可执行</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ chmod a+x ex1 (将文件ex1的权限改为所有用户都有执行权限)</span><br><span class="line">$ chmod u=r ug=x ex1 （将ex1的权限诚信设置成文件主可以读和执行，组用户可以执行，其他用户无权限）</span><br><span class="line">$ chmod 0664 ex1 (使文件ex1的文件主和同组用户具有读、写权限，而其他用户只可读)</span><br></pre></td></tr></table></figure><h3 id="umask命令"><a href="#umask命令" class="headerlink" title="umask命令"></a>umask命令</h3><p>用来设置限制新建文件权限的掩码。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ umask u=,g=w,o=rwxg (将组用户的写权限、其他用户的读/写和执行权限都取消)</span><br></pre></td></tr></table></figure><h2 id="改变用户组和文件主的命令"><a href="#改变用户组和文件主的命令" class="headerlink" title="改变用户组和文件主的命令"></a>改变用户组和文件主的命令</h2><h3 id="chgrp命令"><a href="#chgrp命令" class="headerlink" title="chgrp命令"></a>chgrp命令</h3><p>改变文件或目录的所属的用户组。</p><p>-R，–recursive 递归式改变指定目录及其下面的所有子目录和文件的用户组。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chgrp -R mengxin /home/mengqc (将/home/mengqc及其子目录下的所有文件的用户组改为mengxin)</span><br></pre></td></tr></table></figure><h3 id="chown命令"><a href="#chown命令" class="headerlink" title="chown命令"></a>chown命令</h3><p>改变某个文件或目录的所有者和所属的组。</p><p>-R，–recursive 递归式改变指定目录及其下面的所有子目录和文件的文件主。</p><p>-v –verbose 详细列出该命令所做的工作。</p><p>ps：只有文件主和超级用户可以使用该命令。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chown -R liu /home/mengqc (将目录/home/mengqc及下面的所有文件、子目录的文件主改为liu)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Linux下目录及其操作命令&quot;&gt;&lt;a href=&quot;#Linux下目录及其操作命令&quot; class=&quot;headerlink&quot; title=&quot;Linux下目录及其操作命令&quot;&gt;&lt;/a&gt;Linux下目录及其操作命令&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;创建和删除目录的命令&quot;&gt;
-      
-    
-    </summary>
-    
-      <category term="Linux学习" scheme="http://yoursite.com/categories/Linux%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   

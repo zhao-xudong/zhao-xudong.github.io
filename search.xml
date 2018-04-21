@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[动态绑定]]></title>
+    <url>%2F2018%2F04%2F21%2F%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A%2F</url>
+    <content type="text"><![CDATA[动态绑定要点提示：方法可以沿着继承链的多个类中实现。JVM决定运行时调用哪个方法。 ​ 方法可以在父类中定义而在子类中重写。例如：toString()方法在Object类中定义的，而在GeometricObject类中重写。思考下面代码： 12Object o =new GeometricObject();System.out.println(o.toString()); ​ 这里的o调用哪个toString()呢？为了回答这个问题，我们首先介绍两个术语：声明类型和实际类型。一个变量必须被声明为某种类型。变量的这个类型成为它的声明类型（declared type）。这里，o的声明类型是Object。一个引用类型变量可以是一个null值或者一个对声明类型实例的引用。实例可以使用声明类型或它的子类型的构造方法创建。变量的实际类型（actual type）是被变量引用的对象的实际类。这里，o的实际类型是GeometricObject,因为o指向使用new GeometricObject()创建的对象。o调用哪个toString()方法由o的实际类型决定。这成为动态绑定。 ​ 动态绑定的工作机制如下：假设对象o是类C1，C2，….，Cn的实例，其中C1是C2的子类，C2是C3的子类…Cn-1是Cn的子类，也就是说Cn是最通用类，C1是最特殊的类。在Java中，Cn是Object类。如果对象o调用一个方法p，那么JVM会依次在类C1，C2，….，Cn-1，Cn中查找方法p的实现，直到找到为止。一旦找到就实现，就停止查找，然后使用首先找到的实现。 DynamicBindingDemo.java 12345678910111213141516171819202122232425262728package ohhh;public class DynamicBindingDemo&#123; public static void main(String[] args)&#123; m(new GraduateStudent()); m(new Student()); m(new Person()); m(new Object()); &#125; public static void m(Object x)&#123; System.out.println(x.toString()); &#125; public static class GraduateStudent extends Student&#123; &#125; public static class Student extends Person&#123; @Override public String toString()&#123; return &quot;Student&quot;; &#125; &#125; public static class Person extends Object&#123; @Override public String toString()&#123; return &quot;Person&quot;; &#125; &#125;&#125; 运行结果：]]></content>
+      <categories>
+        <category>Java(基础篇)</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[给自己的博客加上图片]]></title>
     <url>%2F2018%2F04%2F19%2F%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%8A%A0%E4%B8%8A%E5%9B%BE%E7%89%87%2F</url>
     <content type="text"><![CDATA[给自己的博客加上图片 前言写博客的时候，有时候图片比文字更有说服力，比如：代码运行结果，本来一张图片解决的事情，不用图片的话，就得自己敲结果，然而别人不一定能看懂，这就非常尴尬了，所以说，在某些时候图片的说服力还是很强大的，比如下面这张表达的意思。 ​ 言归正传，我下面介绍一下我比较相中的办法，因为不用借助七牛等等，当然相比较而言的优缺点就忽略吧。 解决办法1.首先把blog（hexo）目录下的_config.yml里的psot_asset_folder:设置为true 2.在blog（hexo）目录下执行: 1npm install hexo-asset-image --save 3.在blog（hexo）目录下Git Bash Here，运行hexo n “博客名”来生成md博客时，会在_post目录下看到一个与博客同名的文件夹。 4.将想要上传的图片先扔到文件夹下，然后在博客中使用markdown的格式引入图片： 1![你想要输入的替代文字](xxxx/图片名.jpg) ps：因为博客名和文件夹名字相同，所以不需要绝对路径，只要xxxx是文件夹的名字就可以了。 5.然后，使用hexo g部署的时候，进入public\2018\04\19\index.html文件中查看相关字段，可以发现html标签内的语句是img src = “2018/04/19/xxxx/图片名.jpg”而不是img src=”xxxx.图片名.jpg”，这就成功了，当然前面步骤操作正确的话，这一步也不用检查。 ​ 最后放一张帅照，并感谢Nubb，为你引流233333。]]></content>
