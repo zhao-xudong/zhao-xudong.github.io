@@ -4,6 +4,12 @@
     <title><![CDATA[Font类]]></title>
     <url>%2F2018%2F04%2F22%2FFont%E7%B1%BB%2F</url>
     <content type="text"><![CDATA[Font类 要点提示：Font类描述字体名、粗细和大小。 ​ 可以砸渲染文字的时候设置字体信息。javafx.scene.text.Font类用于创建字体。 ​ Font实例可以使用它的构造方法或者静态方法来创建。Font可以用它的名字、字体粗细、字体形态和大小来描述。Times、Courier和Arial是字体名字的实例。可以通过调用静态方法getFamilies()获得一个可用的字体系列名字列表。List是一个为列表字体通过方法的接口。ArrayList是List的一个具体实现。字体形态是两个常量：FontPosture.IRALIC和FontPosture.REGULAR。例如下面的语句生成两个字体。 12Font font1 = new Font(&quot;SansSerif&quot;,16);//字体(SansSerif，大小16)Font font2 = Font.font(&quot;Times New Roman&quot;,FontPosture.IRALC,FontPosture.REGULAR,20);//字体(Times New Roman、加粗、斜体和大小为20) javafx.scene.text.Font -size: double //该字体的大小 -name: String //该字体的名字 -family: String //该字体属于的字体集 +Font(size: double) //使用给定字体大小创建一个Font +Font(name: String,size: double)//使用给定的字体完整名称和大小创建一个Font +font(name: String,size: double)//使用给定的字体名称和大小创建一个Font +font(name: String,w: FontWeight,size: double)//使用给定的字体名称、粗细和大小创建一个Font +font(name: String,w: FontWeight,p:FontPosture,size: double)//使用给定的字体名称、粗细、字形以及大小创建一个Font +getFamilies(): List //返回一个字体集名字的列表 +getFontName(): List //返回一个字体完整名称的列表，包括字体集和粗细 12345678910111213141516171819202122232425262728293031323334package ohhh;import javafx.application.Application;import javafx.scene.Scene;import javafx.scene.layout.*;import javafx.scene.paint.Color;import javafx.scene.shape.Circle;import javafx.scene.text.*;import javafx.scene.control.*;import javafx.stage.Stage;public class FontDemo extends Application&#123; @Override public void start(Stage primaryStage)&#123; Pane pane = new StackPane(); Circle circle = new Circle(); circle.setRadius(50); circle.setStroke(Color.BLACK); circle.setFill(new Color(0.5,0.5,0.5,0.1)); pane.getChildren().add(circle); Label label = new Label(&quot;JavaFX&quot;); label.setFont(Font.font(&quot;Times New Roman&quot;,FontWeight.BOLD,FontPosture.ITALIC,20)); pane.getChildren().add(label); Scene scene=new Scene(pane); primaryStage.setTitle(&quot;FontDemo&quot;); primaryStage.setScene(scene); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125; 运行结果：]]></content>
+      <categories>
+        <category>Java(基础篇)</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[ArrayList类]]></title>
