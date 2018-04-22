@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="马里奥">
 <meta property="og:description" content="Font类 要点提示：Font类描述字体名、粗细和大小。 ​    可以砸渲染文字的时候设置字体信息。javafx.scene.text.Font类用于创建字体。 ​    Font实例可以使用它的构造方法或者静态方法来创建。Font可以用它的名字、字体粗细、字体形态和大小来描述。Times、Courier和Arial是字体名字的实例。可以通过调用静态方法getFamilies()获得一个可用的字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/04/22/Font类/E]VKQMUWAIY2EOF6RT%V%XX.png">
-<meta property="og:updated_time" content="2018-04-22T07:52:57.789Z">
+<meta property="og:image" content="http://yoursite.com/2018/04/22/Font类/javaFX.jpg">
+<meta property="og:updated_time" content="2018-04-22T12:55:14.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Font类">
 <meta name="twitter:description" content="Font类 要点提示：Font类描述字体名、粗细和大小。 ​    可以砸渲染文字的时候设置字体信息。javafx.scene.text.Font类用于创建字体。 ​    Font实例可以使用它的构造方法或者静态方法来创建。Font可以用它的名字、字体粗细、字体形态和大小来描述。Times、Courier和Arial是字体名字的实例。可以通过调用静态方法getFamilies()获得一个可用的字">
-<meta name="twitter:image" content="http://yoursite.com/2018/04/22/Font类/E]VKQMUWAIY2EOF6RT%V%XX.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/04/22/Font类/javaFX.jpg">
 
 
 
@@ -408,7 +408,7 @@
 <p>+getFontName(): List<string>    //返回一个字体完整名称的列表，包括字体集和粗细</string></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package ohhh;</span><br><span class="line">import javafx.application.Application;</span><br><span class="line">import javafx.scene.Scene;</span><br><span class="line">import javafx.scene.layout.*;</span><br><span class="line">import javafx.scene.paint.Color;</span><br><span class="line">import javafx.scene.shape.Circle;</span><br><span class="line">import javafx.scene.text.*;</span><br><span class="line">import javafx.scene.control.*;</span><br><span class="line">import javafx.stage.Stage;</span><br><span class="line">public class FontDemo extends Application&#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void start(Stage primaryStage)&#123;</span><br><span class="line">		Pane pane = new StackPane();</span><br><span class="line">		</span><br><span class="line">		Circle circle = new Circle();</span><br><span class="line">		circle.setRadius(50);</span><br><span class="line">		circle.setStroke(Color.BLACK);</span><br><span class="line">		circle.setFill(new Color(0.5,0.5,0.5,0.1));</span><br><span class="line">		pane.getChildren().add(circle);</span><br><span class="line">		</span><br><span class="line">		Label label = new Label(&quot;JavaFX&quot;);</span><br><span class="line">		label.setFont(Font.font(&quot;Times New Roman&quot;,FontWeight.BOLD,FontPosture.ITALIC,20));</span><br><span class="line">		pane.getChildren().add(label);</span><br><span class="line">		</span><br><span class="line">		Scene scene=new Scene(pane);</span><br><span class="line">		primaryStage.setTitle(&quot;FontDemo&quot;);</span><br><span class="line">		primaryStage.setScene(scene);</span><br><span class="line">		primaryStage.show();</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args)&#123;</span><br><span class="line">		Application.launch(args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>运行结果：</strong></p>
-<p><img src="/2018/04/22/Font类/E]VKQMUWAIY2EOF6RT%V%XX.png" alt=""></p>
+<p><img src="/2018/04/22/Font类/javaFX.jpg" alt=""></p>
 
       
     </div>
