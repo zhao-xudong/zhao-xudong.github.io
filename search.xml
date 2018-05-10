@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python糗百爬虫]]></title>
+    <url>%2F2018%2F05%2F10%2FPython%E7%B3%97%E7%99%BE%E7%88%AC%E8%99%AB%2F</url>
+    <content type="text"><![CDATA[Python糗百爬虫 12345678910111213141516171819202122# -*- coding:utf-8 -*-import urllib2import urllibimport reurl=&apos;https://www.qiushibaike.com/8hr/page/1/&apos;headers=&#123;&apos;User-Agent&apos; : &apos;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&apos;&#125;try: request=urllib2.Request(url,headers=headers) response=urllib2.urlopen(request) content=response.read().decode(&apos;utf-8&apos;) pattern=re.compile(&apos;&lt;div class=&quot;author.*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&apos;+&apos;&lt;div class=&quot;content&quot;&gt;.*?&lt;span&gt;(.*?)&lt;/span&gt;.*?&apos;+&apos;&lt;i class=&quot;number.*?&gt;(.*?)&lt;/i&gt;(.*?)&lt;/span&gt;.*?&apos;,re.S) items=re.findall(pattern,content) for item in items: print item[0],item[1],item[2],item[3]except urllib2.URLError,e: if hasattr(e,&quot;code&quot;): print e.code if hasattr(e,&quot;reason&quot;): print e.reason 爬取结果：]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python学习地址]]></title>
     <url>%2F2018%2F05%2F10%2FPython%E5%AD%A6%E4%B9%A0%E5%9C%B0%E5%9D%80%2F</url>
     <content type="text"><![CDATA[Python学习地址 廖雪峰的Python基础知识 崔庆才的Python爬虫学习]]></content>
