@@ -81,21 +81,21 @@
 
 
 
-<meta name="description" content="Python入门级爬取百度百科词条 目标爬取https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &amp;apos">
+<meta name="description" content="Python入门级爬取百度百科词条 目标爬取 Angelababy词条历史版本 中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &amp;apos;https://baike.baidu.com/historylist/Angel">
 <meta name="keywords" content="Python,百科词条">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python入门级爬取百度百科词条">
 <meta property="og:url" content="http://yoursite.com/2018/05/10/Python入门级爬取百度百科词条/index.html">
 <meta property="og:site_name" content="马里奥">
-<meta property="og:description" content="Python入门级爬取百度百科词条 目标爬取https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &amp;apos">
+<meta property="og:description" content="Python入门级爬取百度百科词条 目标爬取 Angelababy词条历史版本 中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &amp;apos;https://baike.baidu.com/historylist/Angel">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/10/Python入门级爬取百度百科词条/001.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/10/Python入门级爬取百度百科词条/002.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/05/10/Python入门级爬取百度百科词条/003.jpg">
-<meta property="og:updated_time" content="2018-05-10T03:33:28.392Z">
+<meta property="og:updated_time" content="2018-05-10T03:40:04.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python入门级爬取百度百科词条">
-<meta name="twitter:description" content="Python入门级爬取百度百科词条 目标爬取https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &amp;apos">
+<meta name="twitter:description" content="Python入门级爬取百度百科词条 目标爬取 Angelababy词条历史版本 中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &amp;apos;https://baike.baidu.com/historylist/Angel">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/10/Python入门级爬取百度百科词条/001.jpg">
 
 
@@ -393,7 +393,7 @@
 
       
         <h1 id="Python入门级爬取百度百科词条"><a href="#Python入门级爬取百度百科词条" class="headerlink" title="Python入门级爬取百度百科词条"></a>Python入门级爬取百度百科词条</h1><hr>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>爬取<a href="https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。" target="_blank" rel="noopener">https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。</a></p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>爬取 <a href="https://baike.baidu.com/historylist/Angelababy/1509275#page1" target="_blank" rel="noopener">Angelababy词条历史版本 </a>中的value值。</p>
 <h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><h3 id="尝试爬取网页"><a href="#尝试爬取网页" class="headerlink" title="尝试爬取网页"></a>尝试爬取网页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># _*_ coding:utf-8 _*_</span><br><span class="line">import urllib</span><br><span class="line">import urllib2</span><br><span class="line">import re</span><br><span class="line">page = 1</span><br><span class="line">url = &apos;https://baike.baidu.com/historylist/Angelababy/1509275#page&apos;+str(page)</span><br><span class="line">try:</span><br><span class="line">    request = urllib2.Request(url)</span><br><span class="line">    response = urllib2.urlopen(request)</span><br><span class="line">    print response.read()</span><br><span class="line">except urllib2.URLError, e:</span><br><span class="line">    if hasattr(e,&quot;code&quot;):</span><br><span class="line">        print e.code</span><br><span class="line">    if hasattr(e,&quot;reason&quot;):</span><br><span class="line">        print e.reason</span><br></pre></td></tr></table></figure>
 <p>运行结果：</p>
 <p><img src="/2018/05/10/Python入门级爬取百度百科词条/001.jpg" alt=""></p>
