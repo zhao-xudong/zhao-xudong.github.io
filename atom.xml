@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-29T15:24:50.921Z</updated>
+  <updated>2018-05-10T03:33:28.392Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python入门级爬取百度百科词条</title>
+    <link href="http://yoursite.com/2018/05/10/Python%E5%85%A5%E9%97%A8%E7%BA%A7%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%E8%AF%8D%E6%9D%A1/"/>
+    <id>http://yoursite.com/2018/05/10/Python入门级爬取百度百科词条/</id>
+    <published>2018-05-10T03:12:33.000Z</published>
+    <updated>2018-05-10T03:33:28.392Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python入门级爬取百度百科词条"><a href="#Python入门级爬取百度百科词条" class="headerlink" title="Python入门级爬取百度百科词条"></a>Python入门级爬取百度百科词条</h1><hr><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>爬取<a href="https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。" target="_blank" rel="noopener">https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。</a></p><h2 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h2><h3 id="尝试爬取网页"><a href="#尝试爬取网页" class="headerlink" title="尝试爬取网页"></a>尝试爬取网页</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># _*_ coding:utf-8 _*_</span><br><span class="line">import urllib</span><br><span class="line">import urllib2</span><br><span class="line">import re</span><br><span class="line">page = 1</span><br><span class="line">url = &apos;https://baike.baidu.com/historylist/Angelababy/1509275#page&apos;+str(page)</span><br><span class="line">try:</span><br><span class="line">    request = urllib2.Request(url)</span><br><span class="line">    response = urllib2.urlopen(request)</span><br><span class="line">    print response.read()</span><br><span class="line">except urllib2.URLError, e:</span><br><span class="line">    if hasattr(e,&quot;code&quot;):</span><br><span class="line">        print e.code</span><br><span class="line">    if hasattr(e,&quot;reason&quot;):</span><br><span class="line">        print e.reason</span><br></pre></td></tr></table></figure><p>运行结果：</p><p><img src="/2018/05/10/Python入门级爬取百度百科词条/001.jpg" alt=""></p><p>可以看到已经爬取了此网页所有的内容。现在需要实现的就是爬取想要的value值了。</p><h3 id="爬取目标内容"><a href="#爬取目标内容" class="headerlink" title="爬取目标内容"></a>爬取目标内容</h3><p><img src="/2018/05/10/Python入门级爬取百度百科词条/002.jpg" alt=""></p><p>可以看到要爬取的内容，格式全部一样都是图中所示，代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;tr&gt;</span><br><span class="line">&lt;td class=&quot;checkBox&quot;&gt;</span><br><span class="line">&lt;input type=&quot;checkbox&quot; value=&quot;128140635&quot;&gt;</span><br><span class="line">&lt;/td&gt;</span><br><span class="line">  .</span><br><span class="line">  .</span><br><span class="line">  .</span><br><span class="line">&lt;/tr&gt;</span><br></pre></td></tr></table></figure><p>所以我们做以下正则匹配：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pattern = re.compile(&apos;&lt;tr&gt;.*?&lt;td class=&quot;checkBox&quot;&gt;.*?&lt;input.*?value=&quot;(.*?)&quot;&gt;.*?&lt;/td&gt;.*?&lt;/tr&gt;&apos;,re.S)</span><br></pre></td></tr></table></figure><p>全部代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># _*_ coding:utf-8 _*_</span><br><span class="line">import urllib</span><br><span class="line">import urllib2</span><br><span class="line">import re</span><br><span class="line">page = 1</span><br><span class="line">url = &apos;https://baike.baidu.com/historylist/Angelababy/1509275#page&apos;+str(page)</span><br><span class="line">try:</span><br><span class="line">    request = urllib2.Request(url)</span><br><span class="line">    response = urllib2.urlopen(request)</span><br><span class="line">    content = response.read().decode(&apos;utf-8&apos;)</span><br><span class="line">    pattern = re.compile(&apos;&lt;tr&gt;.*?&lt;td class=&quot;checkBox&quot;&gt;.*?&lt;input.*?value=&quot;(.*?)&quot;&gt;.*?&lt;/td&gt;.*?&lt;/tr&gt;&apos;,re.S)</span><br><span class="line">    items = re.findall(pattern,content)</span><br><span class="line">    for item in items:</span><br><span class="line">        print(item)</span><br><span class="line">except urllib2.URLError,e:</span><br><span class="line">    if hasattr(e,&quot;code&quot;):</span><br><span class="line">        print e.code</span><br><span class="line">    if hasattr(e,&quot;reason&quot;):</span><br><span class="line">        print e.reason</span><br></pre></td></tr></table></figure><p>爬取结果如下：</p><p><img src="/2018/05/10/Python入门级爬取百度百科词条/003.jpg" alt=""></p><h3 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h3><p><a href="https://cuiqingcai.com/990.html" target="_blank" rel="noopener">崔庆才的个人博客</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Python入门级爬取百度百科词条&quot;&gt;&lt;a href=&quot;#Python入门级爬取百度百科词条&quot; class=&quot;headerlink&quot; title=&quot;Python入门级爬取百度百科词条&quot;&gt;&lt;/a&gt;Python入门级爬取百度百科词条&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="百科词条" scheme="http://yoursite.com/tags/%E7%99%BE%E7%A7%91%E8%AF%8D%E6%9D%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>鲜衣怒马，归来不再少年</title>
@@ -515,33 +543,6 @@
       <category term="Ubuntu" scheme="http://yoursite.com/tags/Ubuntu/"/>
     
       <category term="并行计算" scheme="http://yoursite.com/tags/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中String类型的骚操作（2）</title>
-    <link href="http://yoursite.com/2018/03/19/Java%E4%B8%ADString%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%AA%9A%E6%93%8D%E4%BD%9C%EF%BC%882%EF%BC%89/"/>
-    <id>http://yoursite.com/2018/03/19/Java中String类型的骚操作（2）/</id>
-    <published>2018-03-19T14:27:23.000Z</published>
-    <updated>2018-04-21T16:39:37.150Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java中String类型的骚操作（2）"><a href="#Java中String类型的骚操作（2）" class="headerlink" title="Java中String类型的骚操作（2）"></a>Java中String类型的骚操作（2）</h1><hr><h2 id="String类包含的获取子串的方法"><a href="#String类包含的获取子串的方法" class="headerlink" title="String类包含的获取子串的方法"></a>String类包含的获取子串的方法</h2><table><thead><tr><th>方法</th><th>描述</th></tr></thead><tbody><tr><td>substring(beginIndex)</td><td>返回该字符串的子串，从特定位置beginIndex的字符开始到字符串的结尾</td></tr><tr><td>substring(beginIndex,endIndex)</td><td>返回该字符串的子串，从特定位置beginIndex的字符开始到下标为endIndex-1的字符</td></tr></tbody></table><p>1）使用substring(beginIndex)方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;Welcome to Java&quot;;</span><br><span class="line">Strnig s1 = message.substring(11);</span><br><span class="line">System.out.println(s1);//返回Java</span><br></pre></td></tr></table></figure><p>这里需要注意的是“W”其实是第0个字符，所以“J”是第11个字符。</p><p>2）使用substring(beginIndex,endIndex)方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;Welcome to Java&quot;;</span><br><span class="line">String s1 = message.substring(0,10);</span><br><span class="line">System.out.println(s1);//返回Welcome to</span><br></pre></td></tr></table></figure><h2 id="获取字符串中的字符或者子串"><a href="#获取字符串中的字符或者子串" class="headerlink" title="获取字符串中的字符或者子串"></a>获取字符串中的字符或者子串</h2><table><thead><tr><th>方法</th><th>描述</th></tr></thead><tbody><tr><td>indexOf(ch)</td><td>返回字符串中出现的第一个ch的下标，如果没有匹配的，返回-1</td></tr><tr><td>indexOf(ch,fromIndex)</td><td>返回字符串中的fromIndex之后出现的第一个ch的下标，如果没有匹配的，返回-1</td></tr><tr><td>indexOf(s)</td><td>返回字符串中出现的第一个字符串s的下标，如果没有匹配，返回-1</td></tr><tr><td>indexOf(s,fromIndex)</td><td>返回字符串中fromIndex后出现的第一个字符串s的下标，如果没有匹配的，返回-1</td></tr><tr><td>lastIndexOf(ch)</td><td>返回字符串中出现的最后一个ch的下标，如果没有匹配，返回-1</td></tr><tr><td>lastIndexOf(ch,fromIndex)</td><td>返回字符串中fromIndex之前出现的最后一个ch的下标，如果没有匹配的，返回-1</td></tr><tr><td>lastIndexOf(s)</td><td>返回字符串中出现的最后一个字符串s的下标，如果没有匹配的，返回-1</td></tr><tr><td>lasIndexOf(s,fromIndex)</td><td>返回字符串忠fromIndex之前出现的最后一个ch的下标，如果没有匹配的，返回-1</td></tr></tbody></table><p>1）使用indexOf(ch)方法和indexOf(ch,fromIndex)方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;Welcome to Java&quot;;</span><br><span class="line">System.out.println(message.indexOf(&quot;W&quot;));//返回 0</span><br><span class="line">System.out.println(message.indexOf(&quot;0&quot;,5));//返回9</span><br></pre></td></tr></table></figure><p>2）使用indexOf(s)方法和indexOf(s,fromIndex)方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;Welcome to Java&quot;;</span><br><span class="line">System.out.println(message.indexOf(&quot;come&quot;));//返回3</span><br><span class="line">System.out.println(message.indexOf(&quot;Java&quot;,5));//返回11</span><br></pre></td></tr></table></figure><p>3）使用lastIndexOf(ch)方法和lastIndexOf(ch,fromIndex)方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;Welcome to Java&quot;;</span><br><span class="line">System.out.println(message.lastIndexOf(&quot;W&quot;));//返回0</span><br><span class="line">System.out.println(message.lastIndexOf(&quot;o&quot;,5));//返回4</span><br></pre></td></tr></table></figure><p>4）使用lastIndexOf(s)方法和lastIndexOf(s,fromIndex)方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String message = &quot;Welcome to Java&quot;;</span><br><span class="line">System.out.println(message.lastIndexOf(&quot;come&quot;));//返回3</span><br><span class="line">System.out.println(message.lastIndexOf(&quot;Java&quot;,5));//返回-1</span><br></pre></td></tr></table></figure><p>PS:写的时候indexOf(“w”)和indexOf(‘w’)是一样的，用””和’’都行。</p><p>​                                                             <strong>字符串的骚操作就告一段落了。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Java中String类型的骚操作（2）&quot;&gt;&lt;a href=&quot;#Java中String类型的骚操作（2）&quot; class=&quot;headerlink&quot; title=&quot;Java中String类型的骚操作（2）&quot;&gt;&lt;/a&gt;Java中String类型的骚操作（2）&lt;/h1&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-      <category term="String" scheme="http://yoursite.com/tags/String/"/>
     
   </entry>
   

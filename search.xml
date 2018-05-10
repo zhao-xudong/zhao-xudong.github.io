@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python入门级爬取百度百科词条]]></title>
+    <url>%2F2018%2F05%2F10%2FPython%E5%85%A5%E9%97%A8%E7%BA%A7%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%E8%AF%8D%E6%9D%A1%2F</url>
+    <content type="text"><![CDATA[Python入门级爬取百度百科词条 目标爬取https://baike.baidu.com/historylist/Angelababy/1509275#page1中的value值。 实现过程尝试爬取网页123456789101112131415# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &apos;https://baike.baidu.com/historylist/Angelababy/1509275#page&apos;+str(page)try: request = urllib2.Request(url) response = urllib2.urlopen(request) print response.read()except urllib2.URLError, e: if hasattr(e,&quot;code&quot;): print e.code if hasattr(e,&quot;reason&quot;): print e.reason 运行结果： 可以看到已经爬取了此网页所有的内容。现在需要实现的就是爬取想要的value值了。 爬取目标内容 可以看到要爬取的内容，格式全部一样都是图中所示，代码如下： 12345678&lt;tr&gt; &lt;td class=&quot;checkBox&quot;&gt; &lt;input type=&quot;checkbox&quot; value=&quot;128140635&quot;&gt; &lt;/td&gt; . . .&lt;/tr&gt; 所以我们做以下正则匹配： 1pattern = re.compile(&apos;&lt;tr&gt;.*?&lt;td class=&quot;checkBox&quot;&gt;.*?&lt;input.*?value=&quot;(.*?)&quot;&gt;.*?&lt;/td&gt;.*?&lt;/tr&gt;&apos;,re.S) 全部代码如下： 12345678910111213141516171819# _*_ coding:utf-8 _*_import urllibimport urllib2import repage = 1url = &apos;https://baike.baidu.com/historylist/Angelababy/1509275#page&apos;+str(page)try: request = urllib2.Request(url) response = urllib2.urlopen(request) content = response.read().decode(&apos;utf-8&apos;) pattern = re.compile(&apos;&lt;tr&gt;.*?&lt;td class=&quot;checkBox&quot;&gt;.*?&lt;input.*?value=&quot;(.*?)&quot;&gt;.*?&lt;/td&gt;.*?&lt;/tr&gt;&apos;,re.S) items = re.findall(pattern,content) for item in items: print(item)except urllib2.URLError,e: if hasattr(e,&quot;code&quot;): print e.code if hasattr(e,&quot;reason&quot;): print e.reason 爬取结果如下： 学习链接崔庆才的个人博客]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>百科词条</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[鲜衣怒马，归来不再少年]]></title>
     <url>%2F2018%2F04%2F29%2F%E9%B2%9C%E8%A1%A3%E6%80%92%E9%A9%AC%EF%BC%8C%E5%BD%92%E6%9D%A5%E4%B8%8D%E5%86%8D%E5%B0%91%E5%B9%B4%2F</url>
     <content type="text"><![CDATA[鲜衣怒马，归来不在少年 ​ 周末总是孤独的，想要找些什么填充自己，划着优酷，划到了《前任3》，于是… … ​ 空间里有朋友在刷屏，好像是失恋了，不知道发生了什么。想起了前几天手机崩溃，相册被清空的事，后怕的打开了相册。第一张是在学四公寓拍的一张照片，当时很非，便做了很久的头像，那是一本我从来没有读过的屠格涅夫散文集，现在翻起来却又是另一番味道，让人沉迷。 ​ ​ 翻到了两年前的自拍，比现在瘦比现在阳光。翻到了学生会的合影，灯光很暖，翻到了烫头的照片，或许以前的肆无忌惮也只有回忆了，时间总是向前走的，回忆也无法回到过去。年少轻狂，满纸荒唐。曾经不是一个人，便天不怕地不怕，颇有挥斥方遒，意气风发。回过头来，其实也只是一段梦，梦的很真实，梦的很开心。梦总是要醒来的，毕竟生活还是要继续的。人会变，生活也会变，生活越来越喜欢与你独处，喜欢看你迷茫的样子，喜欢你拿起酒杯的样子。 ​ 看到这张图的时候，不知道自己在想什么，只是觉得很舒服，好像什么都放下了一样。我收到了肯定，不艰辛的不是成长，熬过苦难便是收获，每一个看到她的人都露出了微笑。自己选择的路，终归要走下去，对于新鲜的事物也有一定保质期，我感觉自己的审美疲劳到来了。得得失失，失失得得，终归要结束这宴席，毕竟我一定不是适合这场游戏的。生活吗，尤其是要走向成年人的生活，哈哈哈哈泡枸杞喝热水，终归要失去点什么、看透点什么、学会点什么或许还能带进土里。 ​ ​ 有些照片、有些话语我会好好的保存下来，它常常能带给我开心，像是冬日透过云彩的阳光散落在身上，温暖着丝丝凉意。等到我再次翻阅的时候，我会感觉到可笑、幼稚，那时候我应该是已经忘记了那种感觉，无法再构建起那份回忆，我希望我不会删除它们。 ​ 鲜衣怒马，归来…… ​ 不在少年。]]></content>
