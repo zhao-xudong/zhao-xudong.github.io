@@ -4,8 +4,12 @@
     <title><![CDATA[JavaFX程序的基本结构]]></title>
     <url>%2F2018%2F05%2F12%2FJavaFX%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%2F</url>
     <content type="text"><![CDATA[JavaFX程序的基本结构 MyJavaFX.java： 1234567891011121314151617import javafx.application.Application;import javafx.stage.Stage;import javafx.scene.control.*;import javafx.scene.*;public class MyJavaFX extends Application&#123; @Override public void start(Stage primaryStage)&#123; Button btOK=new Button(&quot;ok&quot;); Scene scene=new Scene(BUtton,200,250); primaryStage.setTitle(&quot;辣鸡&quot;); primaryStage.setScene(scene); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125; 运行结果： 程序解析： ​ launch方法是一个定义在Application类中的静态方法，用于启动一个独立的JavaFX应用。 ​ 主类重写了定义在javafx.application.Application类中的start方法。当一个JavaFX应用启动时，JVM使用它的无参构造方法来创建类的一个实例，同时调用其start方法。start方法一般用于将UI组件放入一个场景，并在舞台中显示该场景。 ​ 一个Scene对象可以使用构造方法Scene(node,width,height)创建，这个构造方法指定了场景的宽度和高度，并将节点置于一个场景中。]]></content>
+      <categories>
+        <category>Java(基础篇)</category>
+      </categories>
       <tags>
         <tag>JavaFX</tag>
+        <tag>JAVA</tag>
       </tags>
   </entry>
   <entry>
@@ -73,8 +77,8 @@
         <category>Java(基础篇)</category>
       </categories>
       <tags>
-        <tag>JavaFX</tag>
         <tag>Java</tag>
+        <tag>JavaFX</tag>
       </tags>
   </entry>
   <entry>

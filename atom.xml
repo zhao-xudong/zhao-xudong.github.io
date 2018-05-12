@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-12T02:19:29.654Z</updated>
+  <updated>2018-05-12T02:23:43.052Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2018/05/12/JavaFX%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/"/>
     <id>http://yoursite.com/2018/05/12/JavaFX程序的基本结构/</id>
     <published>2018-05-12T02:05:47.000Z</published>
-    <updated>2018-05-12T02:19:29.654Z</updated>
+    <updated>2018-05-12T02:23:43.052Z</updated>
     
     <content type="html"><![CDATA[<h1 id="JavaFX程序的基本结构"><a href="#JavaFX程序的基本结构" class="headerlink" title="JavaFX程序的基本结构"></a>JavaFX程序的基本结构</h1><hr><p><strong>MyJavaFX.java：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import javafx.application.Application;</span><br><span class="line">import javafx.stage.Stage;</span><br><span class="line">import javafx.scene.control.*;</span><br><span class="line">import javafx.scene.*;</span><br><span class="line">public class MyJavaFX extends Application&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void start(Stage primaryStage)&#123;</span><br><span class="line">        Button btOK=new Button(&quot;ok&quot;);</span><br><span class="line">        Scene scene=new Scene(BUtton,200,250);</span><br><span class="line">        primaryStage.setTitle(&quot;辣鸡&quot;);</span><br><span class="line">        primaryStage.setScene(scene);</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Application.launch(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>运行结果：</strong></p><p><img src="/2018/05/12/JavaFX程序的基本结构/001.jpg" alt=""></p><p><strong>程序解析：</strong></p><p>​    launch方法是一个定义在Application类中的静态方法，用于启动一个独立的JavaFX应用。</p><p>​    主类重写了定义在javafx.application.Application类中的start方法。当一个JavaFX应用启动时，JVM使用它的无参构造方法来创建类的一个实例，同时调用其start方法。start方法一般用于将UI组件放入一个场景，并在舞台中显示该场景。</p><p>​    一个Scene对象可以使用构造方法Scene(node,width,height)创建，这个构造方法指定了场景的宽度和高度，并将节点置于一个场景中。</p>]]></content>
     
@@ -35,8 +35,12 @@
     
     </summary>
     
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
     
       <category term="JavaFX" scheme="http://yoursite.com/tags/JavaFX/"/>
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
     
   </entry>
   
@@ -197,9 +201,9 @@
       <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
     
     
-      <category term="JavaFX" scheme="http://yoursite.com/tags/JavaFX/"/>
-    
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="JavaFX" scheme="http://yoursite.com/tags/JavaFX/"/>
     
   </entry>
   
