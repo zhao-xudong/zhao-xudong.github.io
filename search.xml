@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaFX中的Circle的使用]]></title>
+    <url>%2F2018%2F05%2F12%2FJavaFX%E4%B8%AD%E7%9A%84Circle%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[JavaFX中的Circle的使用 ShowCircle.java: 12345678910111213141516171819202122232425import javafx.application.Application;import javafx.scene.Scene;import javafx.scene.layout.Pane;import javafx.scene.shape.Circle;import javafx.scene.paint.Color;import javafx.stage.Stage;public class ShowCircle extends Application&#123; public void start(Stage primaryStage)&#123; Pane pane=new Pane(); Circle circle = new Circle(); circle.setCenterX(100); circle.setCenterY(100); circle.setRadius(50); circle.setStroke(Color.BLACK); circle.setFill(Color.WHITE); pane.getChildren().add(circle); Scene scene=new Scene(pane,400,400); primaryStage.setScene(scene); primaryStage.setTitle(&quot;ShowCircle&quot;); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125; 运行结果： 代码解析： ​ 程序创建了一个Circle并将圆心设置在(100,100)同时这里也是场景的中央，因为创建场景时给出的宽度高度都为200，圆的半径为50。 ​ 笔画颜色设置为黑色(BLACK)，填充颜色设置为白色(WHITE)。]]></content>
+      <categories>
+        <category>Java(基础篇)</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JavaFX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaFX程序的基本结构]]></title>
     <url>%2F2018%2F05%2F12%2FJavaFX%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%2F</url>
     <content type="text"><![CDATA[JavaFX程序的基本结构 MyJavaFX.java： 1234567891011121314151617import javafx.application.Application;import javafx.stage.Stage;import javafx.scene.control.*;import javafx.scene.*;public class MyJavaFX extends Application&#123; @Override public void start(Stage primaryStage)&#123; Button btOK=new Button(&quot;ok&quot;); Scene scene=new Scene(BUtton,200,250); primaryStage.setTitle(&quot;辣鸡&quot;); primaryStage.setScene(scene); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125; 运行结果： 程序解析： ​ launch方法是一个定义在Application类中的静态方法，用于启动一个独立的JavaFX应用。 ​ 主类重写了定义在javafx.application.Application类中的start方法。当一个JavaFX应用启动时，JVM使用它的无参构造方法来创建类的一个实例，同时调用其start方法。start方法一般用于将UI组件放入一个场景，并在舞台中显示该场景。 ​ 一个Scene对象可以使用构造方法Scene(node,width,height)创建，这个构造方法指定了场景的宽度和高度，并将节点置于一个场景中。]]></content>
