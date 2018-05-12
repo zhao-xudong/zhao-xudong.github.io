@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-10T12:58:18.040Z</updated>
+  <updated>2018-05-12T02:19:29.654Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaFX程序的基本结构</title>
+    <link href="http://yoursite.com/2018/05/12/JavaFX%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84/"/>
+    <id>http://yoursite.com/2018/05/12/JavaFX程序的基本结构/</id>
+    <published>2018-05-12T02:05:47.000Z</published>
+    <updated>2018-05-12T02:19:29.654Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="JavaFX程序的基本结构"><a href="#JavaFX程序的基本结构" class="headerlink" title="JavaFX程序的基本结构"></a>JavaFX程序的基本结构</h1><hr><p><strong>MyJavaFX.java：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import javafx.application.Application;</span><br><span class="line">import javafx.stage.Stage;</span><br><span class="line">import javafx.scene.control.*;</span><br><span class="line">import javafx.scene.*;</span><br><span class="line">public class MyJavaFX extends Application&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void start(Stage primaryStage)&#123;</span><br><span class="line">        Button btOK=new Button(&quot;ok&quot;);</span><br><span class="line">        Scene scene=new Scene(BUtton,200,250);</span><br><span class="line">        primaryStage.setTitle(&quot;辣鸡&quot;);</span><br><span class="line">        primaryStage.setScene(scene);</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        Application.launch(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>运行结果：</strong></p><p><img src="/2018/05/12/JavaFX程序的基本结构/001.jpg" alt=""></p><p><strong>程序解析：</strong></p><p>​    launch方法是一个定义在Application类中的静态方法，用于启动一个独立的JavaFX应用。</p><p>​    主类重写了定义在javafx.application.Application类中的start方法。当一个JavaFX应用启动时，JVM使用它的无参构造方法来创建类的一个实例，同时调用其start方法。start方法一般用于将UI组件放入一个场景，并在舞台中显示该场景。</p><p>​    一个Scene对象可以使用构造方法Scene(node,width,height)创建，这个构造方法指定了场景的宽度和高度，并将节点置于一个场景中。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;JavaFX程序的基本结构&quot;&gt;&lt;a href=&quot;#JavaFX程序的基本结构&quot; class=&quot;headerlink&quot; title=&quot;JavaFX程序的基本结构&quot;&gt;&lt;/a&gt;JavaFX程序的基本结构&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;MyJavaFX.java
+      
+    
+    </summary>
+    
+    
+      <category term="JavaFX" scheme="http://yoursite.com/tags/JavaFX/"/>
+    
+  </entry>
   
   <entry>
     <title>Python糗百爬虫</title>
@@ -173,9 +197,9 @@
       <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
       <category term="JavaFX" scheme="http://yoursite.com/tags/JavaFX/"/>
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
@@ -513,34 +537,6 @@
     
     
       <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo博客添加评论神器---valine</title>
-    <link href="http://yoursite.com/2018/04/12/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E8%AF%84%E8%AE%BA%E7%A5%9E%E5%99%A8---valine/"/>
-    <id>http://yoursite.com/2018/04/12/hexo博客添加评论神器---valine/</id>
-    <published>2018-04-12T15:15:23.000Z</published>
-    <updated>2018-04-15T02:53:17.880Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="hexo博客添加评论神器—valine"><a href="#hexo博客添加评论神器—valine" class="headerlink" title="hexo博客添加评论神器—valine"></a>hexo博客添加评论神器—valine</h1><hr><p>我们评论系统是放在LeanCloud上的，因此需要先去注册一个账号。</p><p><a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud官网，点击注册</a></p><p>注册完成后需要创建一个应用，创建成功以后，<strong>进入应用→设置→应用key</strong></p><p>获取到了你的<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">App ID</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">每个app有一个唯一的ID，不可变更</span><br><span class="line"></span><br><span class="line">App Key</span><br><span class="line">XXXXXXXXXXXXXXXXXXXXXXXXXX</span><br><span class="line">适用于所有平台</span><br></pre></td></tr></table></figure><p>拥有了你的<strong>appid</strong>和<strong>appkey</strong>后，打开<strong>主题配置文件</strong>（blog/themes/next/_config.yml）填写<strong>appid</strong>和<strong>appkey</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">valine：</span><br><span class="line">enable: true</span><br><span class="line">appid: your app id //你获取的appid</span><br><span class="line">appkey your app key //你获取的app key</span><br><span class="line">notifiy: false # mail notifier,https://github.com/xCss/Valine/wiki //是否开启邮箱提醒</span><br><span class="line">verfify: false # Verifaication code //开启验证码</span><br><span class="line">planceholde: 评论内容。 //你要发表的评论内容</span><br><span class="line">guest_info: nick,mail,link</span><br><span class="line">pageSize: 10</span><br></pre></td></tr></table></figure><p>PS：配置的时候自行删除”//“开始以后的注释内容，同时如果开启邮箱提醒的话，会默认开启验证码模式。</p><p>完成这些以后还需要在<strong>LeanCloud</strong>中，<strong>进入应用→设置→安全中心</strong>在Web 安全域名中填写自己的博客首页，然后保存。</p><p>最后部署到github，打开自己的博客就可以看到评论功能，有没有点小激动，快去邀请小伙伴发表评论吧。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;hexo博客添加评论神器—valine&quot;&gt;&lt;a href=&quot;#hexo博客添加评论神器—valine&quot; class=&quot;headerlink&quot; title=&quot;hexo博客添加评论神器—valine&quot;&gt;&lt;/a&gt;hexo博客添加评论神器—valine&lt;/h1&gt;&lt;hr&gt;
-
-      
-    
-    </summary>
-    
-      <category term="博客杂谈" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-      <category term="Valine" scheme="http://yoursite.com/tags/Valine/"/>
     
   </entry>
   

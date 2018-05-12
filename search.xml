@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JavaFX程序的基本结构]]></title>
+    <url>%2F2018%2F05%2F12%2FJavaFX%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[JavaFX程序的基本结构 MyJavaFX.java： 1234567891011121314151617import javafx.application.Application;import javafx.stage.Stage;import javafx.scene.control.*;import javafx.scene.*;public class MyJavaFX extends Application&#123; @Override public void start(Stage primaryStage)&#123; Button btOK=new Button(&quot;ok&quot;); Scene scene=new Scene(BUtton,200,250); primaryStage.setTitle(&quot;辣鸡&quot;); primaryStage.setScene(scene); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125; 运行结果： 程序解析： ​ launch方法是一个定义在Application类中的静态方法，用于启动一个独立的JavaFX应用。 ​ 主类重写了定义在javafx.application.Application类中的start方法。当一个JavaFX应用启动时，JVM使用它的无参构造方法来创建类的一个实例，同时调用其start方法。start方法一般用于将UI组件放入一个场景，并在舞台中显示该场景。 ​ 一个Scene对象可以使用构造方法Scene(node,width,height)创建，这个构造方法指定了场景的宽度和高度，并将节点置于一个场景中。]]></content>
+      <tags>
+        <tag>JavaFX</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python糗百爬虫]]></title>
     <url>%2F2018%2F05%2F10%2FPython%E7%B3%97%E7%99%BE%E7%88%AC%E8%99%AB%2F</url>
     <content type="text"><![CDATA[Python糗百爬虫 12345678910111213141516171819202122# -*- coding:utf-8 -*-import urllib2import urllibimport reurl=&apos;https://www.qiushibaike.com/8hr/page/1/&apos;headers=&#123;&apos;User-Agent&apos; : &apos;Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)&apos;&#125;try: request=urllib2.Request(url,headers=headers) response=urllib2.urlopen(request) content=response.read().decode(&apos;utf-8&apos;) pattern=re.compile(&apos;&lt;div class=&quot;author.*?&lt;h2&gt;(.*?)&lt;/h2&gt;.*?&apos;+&apos;&lt;div class=&quot;content&quot;&gt;.*?&lt;span&gt;(.*?)&lt;/span&gt;.*?&apos;+&apos;&lt;i class=&quot;number.*?&gt;(.*?)&lt;/i&gt;(.*?)&lt;/span&gt;.*?&apos;,re.S) items=re.findall(pattern,content) for item in items: print item[0],item[1],item[2],item[3]except urllib2.URLError,e: if hasattr(e,&quot;code&quot;): print e.code if hasattr(e,&quot;reason&quot;): print e.reason 爬取结果：]]></content>
@@ -65,8 +73,8 @@
         <category>Java(基础篇)</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>JavaFX</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
