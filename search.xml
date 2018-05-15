@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[事件驱动编程基础1]]></title>
+    <url>%2F2018%2F05%2F15%2F%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%801%2F</url>
+    <content type="text"><![CDATA[事件驱动编程基础1 ​ 为了响应一个按钮单击事件，你需要编写代码来处理按钮单击动作。按钮是一个事件源对象，即动作起源的地方。你需要创建一个能对一个按钮动作事件进行处理的对象。该对象称为一个事件处理器。 【按钮】（单击一个按钮触发一个动作事件）→【事件】（一个事件是一个对象）→【处理器】事件处理器处理对象 （事件源对象） （事件对象） （事件处理器对象） ​ 不是所有的对象都可以成为一个动作事件的处理器。要成为一个动作事件的处理器，必须满足两个要求： 1）该对象必须是EventHandler接口的一个示例。接口定义了所有处理器的共同行为。表示T是一个Event子类型的泛型。 2）EventHandler接口包含了handle(ActionEvent)方法用于处理动作事件。你的处理器必须覆盖这个方法来响应事件。 HandlerEvent.java: 123456789101112131415161718192021222324252627282930313233343536373839404142434445import javafx.application.Application;import javafx.geometry.Pos;import javafx.scene.Scene;import javafx.scene.control.Button;import javafx.scene.layout.HBox;import javafx.stage.Stage;import javafx.event.ActionEvent;import javafx.event.EventHandler;public class HandleEvent extends Application&#123; @Override public void start(Stage primaryStage)&#123; HBox pane=new HBox(10); pane.setAlignment(Pos.CENTER); Button btOK=new Button(&quot;OK&quot;); Button btCancel=new Button(&quot;Cancel&quot;); OKHandlerClass handler1=new OKHandlerClass(); btOK.setOnAction(handler1); CancelHandlerClass handler2=new CancelHandlerClass(); btCancel.setOnAction(handler2); pane.getChildren().addAll(btOK,btCancel); Scene scene=new Scene(pane,200,200); primaryStage.setTitle(&quot;HandleEvent&quot;); primaryStage.setScene(scene); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125;class OKHandlerClass implements EventHandler&lt;ActionEvent&gt;&#123; @Override public void handle(ActionEvent e)&#123; System.out.println(&quot;OK button clicked&quot;); &#125;&#125;class CancelHandlerClass implements EventHandler&lt;ActionEvent&gt;&#123; @Override public void handle(ActionEvent e)&#123; System.out.println(&quot;Cancel button clicked&quot;); &#125;&#125; 运行结果： 123输出：OK button clicked//点击OK按钮Cancel button clicked//点击Cancel按钮]]></content>
+      <categories>
+        <category>Java(基础篇)</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>事件驱动编程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaFX中的Circle的使用]]></title>
     <url>%2F2018%2F05%2F12%2FJavaFX%E4%B8%AD%E7%9A%84Circle%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[JavaFX中的Circle的使用 ShowCircle.java: 12345678910111213141516171819202122232425import javafx.application.Application;import javafx.scene.Scene;import javafx.scene.layout.Pane;import javafx.scene.shape.Circle;import javafx.scene.paint.Color;import javafx.stage.Stage;public class ShowCircle extends Application&#123; public void start(Stage primaryStage)&#123; Pane pane=new Pane(); Circle circle = new Circle(); circle.setCenterX(100); circle.setCenterY(100); circle.setRadius(50); circle.setStroke(Color.BLACK); circle.setFill(Color.WHITE); pane.getChildren().add(circle); Scene scene=new Scene(pane,400,400); primaryStage.setScene(scene); primaryStage.setTitle(&quot;ShowCircle&quot;); primaryStage.show(); &#125; public static void main(String[] args)&#123; Application.launch(args); &#125;&#125; 运行结果： 代码解析： ​ 程序创建了一个Circle并将圆心设置在(100,100)同时这里也是场景的中央，因为创建场景时给出的宽度高度都为200，圆的半径为50。 ​ 笔画颜色设置为黑色(BLACK)，填充颜色设置为白色(WHITE)。]]></content>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-12T06:02:26.652Z</updated>
+  <updated>2018-05-15T15:16:57.670Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>事件驱动编程基础1</title>
+    <link href="http://yoursite.com/2018/05/15/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%801/"/>
+    <id>http://yoursite.com/2018/05/15/事件驱动编程基础1/</id>
+    <published>2018-05-15T14:58:13.000Z</published>
+    <updated>2018-05-15T15:16:57.670Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="事件驱动编程基础1"><a href="#事件驱动编程基础1" class="headerlink" title="事件驱动编程基础1"></a>事件驱动编程基础1</h1><hr><p>​    为了响应一个按钮单击事件，你需要编写代码来处理按钮单击动作。按钮是一个<strong>事件源对象</strong>，即动作起源的地方。你需要创建一个能对一个按钮动作事件进行处理的对象。该对象称为一个<strong>事件处理器</strong>。</p><p>【按钮】（单击一个按钮触发一个动作事件）→【事件】（一个事件是一个对象）→【处理器】事件处理器处理对象</p><p>（事件源对象）                            （事件对象）                        （事件处理器对象）</p><p>​    不是所有的对象都可以成为一个动作事件的处理器。要成为一个动作事件的处理器，必须满足两个要求：</p><p>1）该对象必须是EventHandler<t extents="" event="">接口的一个示例。接口定义了所有处理器的共同行为。<t extends="" event="">表示T是一个Event子类型的泛型。</t></t></p><p>2）EventHandler<actionevent>接口包含了handle(ActionEvent)方法用于处理动作事件。你的处理器必须覆盖这个方法来响应事件。</actionevent></p><p><strong>HandlerEvent.java:</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">import javafx.application.Application;</span><br><span class="line">import javafx.geometry.Pos;</span><br><span class="line">import javafx.scene.Scene;</span><br><span class="line">import javafx.scene.control.Button;</span><br><span class="line">import javafx.scene.layout.HBox;</span><br><span class="line">import javafx.stage.Stage;</span><br><span class="line">import javafx.event.ActionEvent;</span><br><span class="line">import javafx.event.EventHandler;</span><br><span class="line">public class HandleEvent extends Application&#123;</span><br><span class="line">@Override</span><br><span class="line">public void start(Stage primaryStage)&#123;</span><br><span class="line">HBox pane=new HBox(10);</span><br><span class="line">pane.setAlignment(Pos.CENTER);</span><br><span class="line">Button btOK=new Button(&quot;OK&quot;);</span><br><span class="line">Button btCancel=new Button(&quot;Cancel&quot;);</span><br><span class="line">OKHandlerClass handler1=new OKHandlerClass();</span><br><span class="line">btOK.setOnAction(handler1);</span><br><span class="line">CancelHandlerClass handler2=new CancelHandlerClass();</span><br><span class="line">btCancel.setOnAction(handler2);</span><br><span class="line">pane.getChildren().addAll(btOK,btCancel);</span><br><span class="line"></span><br><span class="line">Scene scene=new Scene(pane,200,200);</span><br><span class="line">primaryStage.setTitle(&quot;HandleEvent&quot;);</span><br><span class="line">primaryStage.setScene(scene);</span><br><span class="line">primaryStage.show();</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">Application.launch(args);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class OKHandlerClass implements EventHandler&lt;ActionEvent&gt;&#123;</span><br><span class="line">@Override</span><br><span class="line">public void handle(ActionEvent e)&#123;</span><br><span class="line">System.out.println(&quot;OK button clicked&quot;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">class CancelHandlerClass implements EventHandler&lt;ActionEvent&gt;&#123;</span><br><span class="line">@Override</span><br><span class="line">public void handle(ActionEvent e)&#123;</span><br><span class="line">System.out.println(&quot;Cancel button clicked&quot;);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><strong>运行结果：</strong></p><p><img src="/2018/05/15/事件驱动编程基础1/001.jpg" alt=""></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输出：</span><br><span class="line">OK button clicked//点击OK按钮</span><br><span class="line">Cancel button clicked//点击Cancel按钮</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;事件驱动编程基础1&quot;&gt;&lt;a href=&quot;#事件驱动编程基础1&quot; class=&quot;headerlink&quot; title=&quot;事件驱动编程基础1&quot;&gt;&lt;/a&gt;事件驱动编程基础1&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;​    为了响应一个按钮单击事件，你需要编写代码来处理按钮单击动作。按钮
+      
+    
+    </summary>
+    
+      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="事件驱动编程" scheme="http://yoursite.com/tags/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaFX中的Circle的使用</title>
@@ -509,32 +537,6 @@
       
         &lt;h1 id=&quot;使用Java库中的类&quot;&gt;&lt;a href=&quot;#使用Java库中的类&quot; class=&quot;headerlink&quot; title=&quot;使用Java库中的类&quot;&gt;&lt;/a&gt;使用Java库中的类&lt;/h1&gt;&lt;hr&gt;
 &lt;h2 id=&quot;Date类&quot;&gt;&lt;a href=&quot;#Date类&quot; clas
-      
-    
-    </summary>
-    
-      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java类多文件运行</title>
-    <link href="http://yoursite.com/2018/04/14/Java%E7%B1%BB%E5%A4%9A%E6%96%87%E4%BB%B6%E8%BF%90%E8%A1%8C/"/>
-    <id>http://yoursite.com/2018/04/14/Java类多文件运行/</id>
-    <published>2018-04-14T01:45:23.000Z</published>
-    <updated>2018-04-14T01:47:51.454Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java类多文件运行"><a href="#Java类多文件运行" class="headerlink" title="Java类多文件运行"></a>Java类多文件运行</h1><hr><h2 id="TV类对电视机的建模："><a href="#TV类对电视机的建模：" class="headerlink" title="TV类对电视机的建模："></a>TV类对电视机的建模：</h2><p>​    channel: int             //这个TV的当前频道（从1到120）</p><p>​    volumeLevel: int     //这个TV的当前音量（从1到7）</p><p>​    on: boolean             //表明这个TV是开的还是关的</p><p>​    +TV()              //构造一个默认的TV对象</p><p>​    +turnOn(): void       //打开这个TV</p><p>​    +turnOff(): void       //关闭这个TV</p><p>​    +setChannel(newChannel: int): void        //为这个TV设置一个新频道</p><p>​    +setVolume(newVolumeLevel: int): void  //为这个TV设置一个新音量</p><p>​    +channelUp(): void                    //给频道数+1</p><p>​    +channelDown(): void                    //给频道数-1</p><p>​    +volumeUp(): void                     //给音量+1</p><p>​    +volumeDown:void                    //给音量-1</p><h2 id="TV-java文件"><a href="#TV-java文件" class="headerlink" title="TV.java文件"></a>TV.java文件</h2><p>TV类中的构造方法定义为公共的，因此可以从其他类中访问。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class TV &#123;</span><br><span class="line">int channel = 1;</span><br><span class="line">int volumeLevel = 1;</span><br><span class="line">boolean on = false;</span><br><span class="line">public void turnOn()&#123;//开</span><br><span class="line">on = true;</span><br><span class="line">&#125;</span><br><span class="line">public void turnOff()&#123;//关</span><br><span class="line">on = false;</span><br><span class="line">&#125;</span><br><span class="line">public void setChannel(int newChannel)&#123;</span><br><span class="line">if(on &amp;&amp; newChannel &gt;= 1&amp;&amp; newChannel &lt;= 120)</span><br><span class="line">volumeLevel = newChannel;</span><br><span class="line">&#125;</span><br><span class="line">public void setVolume(int newVolumeLevel)&#123;</span><br><span class="line">if(on &amp;&amp; newVolumeLevel &gt;=1 &amp;&amp; newVolumeLevel &lt;=7)</span><br><span class="line">volumeLevel = newVolumeLevel;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public void channelUp()&#123;</span><br><span class="line">if(on &amp;&amp; channel &lt; 120)</span><br><span class="line">channel++;</span><br><span class="line">&#125;</span><br><span class="line">public void channelDown()&#123;</span><br><span class="line">if (on &amp;&amp; channel &gt; 1)</span><br><span class="line">channel--;</span><br><span class="line">&#125;</span><br><span class="line">public void volumeUp()&#123;</span><br><span class="line">if(on &amp;&amp; volumeLevel &lt; 7)</span><br><span class="line">volumeLevel++;</span><br><span class="line">&#125;</span><br><span class="line">public void volumeDown()&#123;</span><br><span class="line">if(on &amp;&amp; volumeLevel &gt; 1)</span><br><span class="line">volumeLevel--;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="TestTV-java文件"><a href="#TestTV-java文件" class="headerlink" title="TestTV.java文件"></a>TestTV.java文件</h2><p>第3行和第8行创建了两个对象，然后调用对象中的方法来完成设置频道和音量的动作。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class TestTV &#123;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line">TV tv1 = new TV();</span><br><span class="line">tv1.turnOn();//tv1 开</span><br><span class="line">tv1.setChannel(30);//频道 30</span><br><span class="line">tv1.setVolume(3);// 音量 3</span><br><span class="line"></span><br><span class="line">TV tv2 = new TV();</span><br><span class="line">tv2.turnOn();// tv2 开</span><br><span class="line">tv2.channelUp();// tv2 频道+1</span><br><span class="line">tv2.volumeUp();//tv2 音量+1</span><br><span class="line"></span><br><span class="line">System.out.println(&quot;tv1的频道是&quot;+tv1.channel+&quot;声音是&quot;+tv1.volumeLevel);</span><br><span class="line">System.out.println(&quot;tv2的频道是&quot;+tv2.channel+&quot;声音是&quot;+tv2.volumeLevel);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tv1的频道是1声音是3</span><br><span class="line">tv2的频道是2声音是2</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Java类多文件运行&quot;&gt;&lt;a href=&quot;#Java类多文件运行&quot; class=&quot;headerlink&quot; title=&quot;Java类多文件运行&quot;&gt;&lt;/a&gt;Java类多文件运行&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;TV类对电视机的建模：&quot;&gt;&lt;a href=&quot;#TV类对电
       
     
     </summary>
