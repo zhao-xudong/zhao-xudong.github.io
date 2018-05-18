@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2018-05-18T15:09:36.280Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/categories/index.html</loc>
+    
+    <lastmod>2018-05-18T15:02:11.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2018-05-18T14:49:54.098Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/05/18/Python%E4%B8%ADlist%E5%92%8Ctuple/</loc>
     
     <lastmod>2018-05-18T14:39:20.021Z</lastmod>
@@ -236,20 +257,6 @@
     <loc>http://yoursite.com/2018/03/14/%E9%9D%9E%E5%87%A1%E5%8C%A0%E5%BF%83/</loc>
     
     <lastmod>2018-03-14T15:52:39.226Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/categories/index.html</loc>
-    
-    <lastmod>2018-03-13T02:28:42.251Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/index.html</loc>
-    
-    <lastmod>2018-03-12T15:41:33.128Z</lastmod>
     
   </url>
   

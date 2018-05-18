@@ -3,6 +3,9 @@
 
 
     
+    
+    
+    
   <url>
     <loc>http://yoursite.com/2018/05/18/Python%E4%B8%ADlist%E5%92%8Ctuple/</loc>
     <lastmod>2018-05-18T14:39:20.021Z</lastmod>
@@ -57,9 +60,9 @@
         <title>JavaFX中的Circle的使用</title>
         <pubTime>2018-05-12T05:46:09.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>JavaFX</tag>
+         
+        <tag>Java</tag>
          
          
            
@@ -79,9 +82,9 @@
         <title>JavaFX程序的基本结构</title>
         <pubTime>2018-05-12T02:05:47.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>JavaFX</tag>
+         
+        <tag>Java</tag>
          
          
            
@@ -205,9 +208,9 @@
         <title>Font类</title>
         <pubTime>2018-04-22T07:46:28.000Z</pubTime>
         
-        <tag>Java</tag>
-         
         <tag>JavaFX</tag>
+         
+        <tag>Java</tag>
          
          
            
@@ -718,6 +721,4 @@
     </data>
     </url>
 
-    
-    
 </urlset>
