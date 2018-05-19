@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-18T14:39:20.021Z</updated>
+  <updated>2018-05-19T15:21:43.617Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python中的高级特性-切片</title>
+    <link href="http://yoursite.com/2018/05/19/Python%E4%B8%AD%E7%9A%84%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E5%88%87%E7%89%87/"/>
+    <id>http://yoursite.com/2018/05/19/Python中的高级特性-切片/</id>
+    <published>2018-05-19T15:21:44.000Z</published>
+    <updated>2018-05-19T15:21:43.617Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Python中的高级特性-切片"><a href="#Python中的高级特性-切片" class="headerlink" title="Python中的高级特性-切片"></a>Python中的高级特性-切片</h1><hr><p>取一个list或tuple的部分元素是非常常见的操作。比如，一个list如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L=[&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;, &apos;Jack&apos;]</span><br></pre></td></tr></table></figure><p>取前三个元素：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;L[0:3]</span><br><span class="line">[&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;]</span><br><span class="line">&gt;&gt;&gt;L[:3]</span><br><span class="line">[&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;]</span><br></pre></td></tr></table></figure><p>从索引1开始，取出2个元素来：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;L[1,3]</span><br><span class="line">[&apos;Sarah&apos;,&apos;Tracy&apos;]</span><br></pre></td></tr></table></figure><p>支持倒数切片：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;L[-2:]</span><br><span class="line">[&apos;Bob&apos;,&apos;Jack&apos;]</span><br></pre></td></tr></table></figure><p>前10个数，每两个取一个：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L = range(100)</span><br><span class="line">&gt;&gt;&gt; L</span><br><span class="line">[0, 1, 2, 3, ..., 99]</span><br><span class="line">#上边是创建一个0-99的数列</span><br><span class="line">&gt;&gt;&gt;L[:10:2]</span><br></pre></td></tr></table></figure><p>所有数，每5个取一个</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; L = range(100)</span><br><span class="line">&gt;&gt;&gt; L</span><br><span class="line">[0, 1, 2, 3, ..., 99]</span><br><span class="line">#上边是创建一个0-99的数列</span><br><span class="line">&gt;&gt;&gt;L[::5]</span><br></pre></td></tr></table></figure><p>字符串’xxx’或者Unicode字符串u’xxx’也可以看成一个list，每个元素就是一个字符。因此，字符串也可以用切片操作，只是操作结果还是字符串：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; &apos;ABCDEFG&apos;[:3]</span><br><span class="line">&apos;ABC&apos;</span><br><span class="line">&gt;&gt;&gt; &apos;ABCDEFG&apos;[::2]</span><br><span class="line">&apos;ACEG&apos;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Python中的高级特性-切片&quot;&gt;&lt;a href=&quot;#Python中的高级特性-切片&quot; class=&quot;headerlink&quot; title=&quot;Python中的高级特性-切片&quot;&gt;&lt;/a&gt;Python中的高级特性-切片&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;取一个list或tuple
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="切片" scheme="http://yoursite.com/tags/%E5%88%87%E7%89%87/"/>
+    
+  </entry>
   
   <entry>
     <title>Python中list和tuple</title>
@@ -515,32 +543,6 @@
       
         &lt;h1 id=&quot;关键字this引用&quot;&gt;&lt;a href=&quot;#关键字this引用&quot; class=&quot;headerlink&quot; title=&quot;关键字this引用&quot;&gt;&lt;/a&gt;关键字this引用&lt;/h1&gt;&lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;要点提示：&lt;/strong&gt;关键字this引用独享自身。他
-      
-    
-    </summary>
-    
-      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java库中的Point2D类</title>
-    <link href="http://yoursite.com/2018/04/15/Java%E5%BA%93%E4%B8%AD%E7%9A%84Point2D%E7%B1%BB/"/>
-    <id>http://yoursite.com/2018/04/15/Java库中的Point2D类/</id>
-    <published>2018-04-15T03:04:23.000Z</published>
-    <updated>2018-04-15T03:04:38.220Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java库中的Point2D类"><a href="#Java库中的Point2D类" class="headerlink" title="Java库中的Point2D类"></a>Java库中的Point2D类</h1><hr><p><strong>javafx.geometry.Point2D</strong></p><p>+Point2D(x: double,y: double)        //用给定的x和y坐标来创建一个Point2D对象</p><p>+distance(x: double,y: double): double        //返回该点到定点（x,y）的距离</p><p>+distance(p: Point2D): double        //返回该点到p点的距离</p><p>+getX(): double                //返回该点的x的坐标</p><p>+getY(): double                //返回该点的y的坐标</p><p>+toString(): String                //返回该点的字符串表示</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line">import javafx.geometry.Point2D;</span><br><span class="line">public class TestPoint2D &#123;</span><br><span class="line">public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">Scanner input= new Scanner(System.in);</span><br><span class="line">System.out.println(&quot;Enter point1&apos;s x-,y-coordinates:&quot;);</span><br><span class="line">double x1=input.nextDouble();</span><br><span class="line">double y1=input.nextDouble();</span><br><span class="line">System.out.println(&quot;Enter point2&apos;s x-,y-coordinates:&quot;);</span><br><span class="line">double x2=input.nextDouble();</span><br><span class="line">double y2=input.nextDouble();</span><br><span class="line">Point2D p1 =new Point2D(x1,y1);</span><br><span class="line">Point2D p2 =new Point2D(x2,y2);</span><br><span class="line">System.out.println(&quot;p1 is&quot;+p1.toString());</span><br><span class="line">System.out.println(&quot;p2 is&quot;+p2.toString());</span><br><span class="line">System.out.println(&quot;distance is&quot;+p1.distance(p2));</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>为什么会把这个类单拿出来呢，因为在<strong>eclipse</strong>运行的时候，你会发现会<strong>报错</strong>，难道是书写错了？不不不，下面是<strong>答案：</strong></p><p>这是因为这个类是Eclipse的JRE带的，但并不属于JAVA的公开API。<br>解决方法：<br>右击项目-&gt;属性-&gt;Java Compiler-&gt;Errors/Warnings-&gt;Deprecated and restricted API-&gt;Forbidden reference -&gt; Ignore</p><p><strong>运行结果</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Enter point1&apos;s x-,y-coordinates:</span><br><span class="line">1 2</span><br><span class="line">Enter point2&apos;s x-,y-coordinates:</span><br><span class="line">3 4</span><br><span class="line">p1 isPoint2D [x = 1.0, y = 2.0]</span><br><span class="line">p2 isPoint2D [x = 3.0, y = 4.0]</span><br><span class="line">distance is2.8284271247461903</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Java库中的Point2D类&quot;&gt;&lt;a href=&quot;#Java库中的Point2D类&quot; class=&quot;headerlink&quot; title=&quot;Java库中的Point2D类&quot;&gt;&lt;/a&gt;Java库中的Point2D类&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;javaf
       
     
     </summary>
