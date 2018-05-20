@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python中的函数式编程-高阶函数map/reduce]]></title>
+    <url>%2F2018%2F05%2F21%2FPython%E4%B8%AD%E7%9A%84%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B-%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0mapreduce%2F</url>
+    <content type="text"><![CDATA[Python中的函数式编程-高阶函数map/reduce mapmap()函数接收两个参数，一个是函数，一个是序列，map将传入的函数依次作用到序列的每个元素，并把结果作为新的list返回。 比如我们有一个函数f(x)=x^2，要把这个函数作用在一个list[1,2,3,4,5,6,7,8,9]上，就可以用map()实现如下： 12345&gt;&gt;&gt;def f(x):... return x*x...&gt;&gt;&gt;map(f,[1,2,3,4,5,6,7,8,9])[1,4,9,16,25,36,49,64,81] map()传入的第一个参数是f，即函数对象本身。 map()作为高阶函数，事实上它把运算规则抽象，因此，我们不但可以计算简单的f(x)=x^2，还可以计算任意复杂的函数，比如把这个list转为字符串： 12&gt;&gt;&gt;map(str,[1,2,3,4,5,6,7,8,9])[&apos;1&apos;,&apos;2&apos;,&apos;3&apos;,&apos;4&apos;,&apos;5&apos;,&apos;6&apos;,&apos;7&apos;,&apos;8&apos;,&apos;9&apos;] reducereduce把一个函数作用于一个序列[x1,x2,x3….]上，这个函数必须接收两个参数，reduce把结果和序列的下一个元素做累计计算，其效果就是： 1reduce(f,[x1,x2,x3,x4])=f(f(f(x1,x2),x3),x4) 比如对一个序列求和，就可以用reduce实现： 12345&gt;&gt;&gt;def add(x,y):... return x+y...&gt;&gt;&gt;reduce(add,[1,3,5,7,9])25 当然求和运算可以直接用Python内建函数sum()，没必要动用reduce。 但是如果把序列[1,3,5,7,9]变换成整数13579，reduce就派上用场了： 12345&gt;&gt;&gt;def fn(x,y):... return x*10+y...&gt;&gt;&gt;reduce(fn,[1,3,5,7,9])13579 这个例子本身没有多大用处，但是，如果考虑到字符串str也是一个序列，对上面例子稍加改动，配合map(),我们就可以写出把str转换为int的函数： 12345678&gt;&gt;&gt;def fn(x,y):... return x*10+y...&gt;&gt;&gt;def char2num(S):... return &#123;&apos;0&apos;:0,&apos;1&apos;:1,&apos;2&apos;: 2, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;5&apos;: 5, &apos;6&apos;: 6, &apos;7&apos;: 7, &apos;8&apos;: 8, &apos;9&apos;: 9&#125;[s]...&gt;&gt;&gt;reduce(fn,map(char2num,&apos;13579&apos;))13579 整理成一个str2int的函数就是： 123456def str2int(s): def fn(x,y): return x*10+y def char2num(s): return &#123;&apos;0&apos;: 0, &apos;1&apos;: 1, &apos;2&apos;: 2, &apos;3&apos;: 3, &apos;4&apos;: 4, &apos;5&apos;: 5, &apos;6&apos;: 6, &apos;7&apos;: 7, &apos;8&apos;: 8, &apos;9&apos;: 9&#125;[s] retrun reduce(fn,map(char2num,s))]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>map</tag>
+        <tag>reduce</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python中的高级特性-列表生成器]]></title>
     <url>%2F2018%2F05%2F19%2FPython%E4%B8%AD%E7%9A%84%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7-%E5%88%97%E8%A1%A8%E7%94%9F%E6%88%90%E5%99%A8%2F</url>
     <content type="text"><![CDATA[Python中的高级特性-列表生成器 要生成list[1,2,3,4,5,6,7,8,9,10]可以用range[1,11]： 12&gt;&gt;&gt;range(1,11)[1,2,3,4,5,6,7,8,9,10] 生成[1x1,2x2,3x3,...,10x10]怎么做？ 12&gt;&gt;&gt;[x*x for x in range(1,11)][1, 4, 9, 16, 25, 36, 49, 64, 81, 100] 写列表生成式时，把要生成的元素x*x放到前面，后面跟for循环，就可以把list创建出来，十分有用，多写几次，很快就可以熟悉这种语法。 for循环后面还可以加if判断，这样我们就可以筛选出仅偶数的平方： 12&gt;&gt;&gt;[x*x for x in range(1,11) if x%2==0][4, 16, 36, 64, 100] 还可以使用两层循环，可以生成全排列： 12[m+n for m in&apos;ABC&apos; for n in &apos;XYZ&apos;][&apos;AX&apos;, &apos;AY&apos;, &apos;AZ&apos;, &apos;BX&apos;, &apos;BY&apos;, &apos;BZ&apos;, &apos;CX&apos;, &apos;CY&apos;, &apos;CZ&apos;] for循环其实可以使用两个甚至多个变量，比如dict的iteritems()可以同时迭代key和value： 1234567&gt;&gt;&gt;d=[&apos;x&apos;:&apos;A&apos;,&apos;y&apos;:&apos;B&apos;,&apos;z&apos;:&apos;C&apos;]&gt;&gt;&gt;for k,v in d.iteritems():... print k,&apos;=&apos;,v...y=Bx=Az=C 列表生成式也可以使用两个变量来生成list： 123&gt;&gt;&gt;d=[&apos;x&apos;:&apos;A&apos;,&apos;y&apos;:&apos;B&apos;,&apos;z&apos;:&apos;C&apos;]&gt;&gt;&gt;[k+&apos;=&apos;+v for k,v ind.iteritems()][&apos;y=B&apos;,&apos;x=A&apos;,&apos;z=C&apos;] 把一个list所有的字符串变为小写： 123&gt;&gt;&gt; L = [&apos;Hello&apos;, &apos;World&apos;, &apos;IBM&apos;, &apos;Apple&apos;]&gt;&gt;&gt; [s.lower() for s in L][&apos;hello&apos;, &apos;world&apos;, &apos;ibm&apos;, &apos;apple&apos;]]]></content>
