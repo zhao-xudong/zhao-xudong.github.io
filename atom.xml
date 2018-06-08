@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-28T08:10:00.156Z</updated>
+  <updated>2018-06-08T15:51:02.187Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python中类中操作一个对象的状态</title>
+    <link href="http://yoursite.com/2018/06/08/python%E4%B8%AD%E7%B1%BB%E4%B8%AD%E6%93%8D%E4%BD%9C%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81/"/>
+    <id>http://yoursite.com/2018/06/08/python中类中操作一个对象的状态/</id>
+    <published>2018-06-08T15:12:42.000Z</published>
+    <updated>2018-06-08T15:51:02.187Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="python中类中操作一个对象的状态"><a href="#python中类中操作一个对象的状态" class="headerlink" title="python中类中操作一个对象的状态"></a>python中类中操作一个对象的状态</h1><hr><p>使用<code>getattr()</code>、<code>setattr()</code>以及<code>hasattr()</code>，我们可以直接操作一个对象的状态：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;class MyObject(object):</span><br><span class="line">...def __init__(self):</span><br><span class="line">...self.x=9</span><br><span class="line">...def power(self):</span><br><span class="line">...return self.x * self.x</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt;obj = MyObject()</span><br></pre></td></tr></table></figure><p>紧接着，可以测试该对象的属性：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;hasattr(obj,&apos;x&apos;) # 有属性&apos;x&apos;吗？</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt;obj.x</span><br><span class="line">9</span><br><span class="line">&gt;&gt;&gt;hasattr(obj,&apos;y&apos;) # 有属性&apos;y&apos;吗？</span><br><span class="line">False</span><br><span class="line">&gt;&gt;&gt;setattr(obj,&apos;y&apos;,19) # 设置一个属性&apos;y&apos;</span><br><span class="line">&gt;&gt;&gt;hasattr(obj,&apos;y&apos;) # 有属性&apos;y&apos;吗？</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt;getattr(obj,&apos;y&apos;) # 获取属性&apos;y&apos;</span><br><span class="line">19</span><br><span class="line">&gt;&gt;&gt;obj.y</span><br><span class="line">19</span><br></pre></td></tr></table></figure><p>可以传入一个default参数，如果属性不存在，就返回默认值：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;getattr(obj,&apos;z&apos;,404)</span><br><span class="line">404</span><br></pre></td></tr></table></figure><p>也可以获得对象的方法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;hasattr(obj,&apos;power&apos;) # 有属性&apos;power&apos;吗？</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt;getattr(obj,&apos;power&apos;) # 获取属性&apos;power&apos;吗？</span><br><span class="line">&lt;bound method MyObject.power of &lt;__main__.MyObject object at 0x108ca35d0&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;fn=getattr(obj,&apos;power&apos;) # 获取属性&apos;power&apos;并赋值到变量fn</span><br><span class="line">&gt;&gt;&gt;fn # fn指向obj.power</span><br><span class="line">&lt;bound method MyObject.power of &lt;__main__.MyObject object at 0x108ca35d0&gt;&gt;</span><br><span class="line">&gt;&gt;&gt;fn() # 调用fn()与调用obj.power()是一样的</span><br><span class="line">81</span><br></pre></td></tr></table></figure><p>目前还是没有实际应用过，处于半懵半懂状态。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;python中类中操作一个对象的状态&quot;&gt;&lt;a href=&quot;#python中类中操作一个对象的状态&quot; class=&quot;headerlink&quot; title=&quot;python中类中操作一个对象的状态&quot;&gt;&lt;/a&gt;python中类中操作一个对象的状态&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;使
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="getattr()" scheme="http://yoursite.com/tags/getattr/"/>
+    
+      <category term="setattr()" scheme="http://yoursite.com/tags/setattr/"/>
+    
+      <category term="hasattr()" scheme="http://yoursite.com/tags/hasattr/"/>
+    
+  </entry>
   
   <entry>
     <title>基于MySQL的图书管理系统</title>
@@ -532,31 +564,6 @@
       
         &lt;h1 id=&quot;判断回文串时忽略既非字母又非数字的字符&quot;&gt;&lt;a href=&quot;#判断回文串时忽略既非字母又非数字的字符&quot; class=&quot;headerlink&quot; title=&quot;判断回文串时忽略既非字母又非数字的字符&quot;&gt;&lt;/a&gt;判断回文串时忽略既非字母又非数字的字符&lt;/h1&gt;&lt;hr&gt;
 
-      
-    
-    </summary>
-    
-      <category term="Java(基础篇)" scheme="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>toString、capacity、length、setlength和charAt方法</title>
-    <link href="http://yoursite.com/2018/04/18/toString%E3%80%81capacity%E3%80%81length%E3%80%81setlength%E5%92%8CcharAt%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2018/04/18/toString、capacity、length、setlength和charAt方法/</id>
-    <published>2018-04-18T06:18:22.000Z</published>
-    <updated>2018-04-18T06:18:58.525Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="toString、capacity、length、setlength和charAt方法"><a href="#toString、capacity、length、setlength和charAt方法" class="headerlink" title="toString、capacity、length、setlength和charAt方法"></a>toString、capacity、length、setlength和charAt方法</h1><hr><p>​    StringBuilder类提供了许多其他处理字符串构建器和获取它的属性的办法。</p><p><strong>java.lang.StringBuilder</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+toString(): String//从字符串构建器返回一个字符串对象</span><br><span class="line">+capacity(): int//返回该字符串构建器的容量</span><br><span class="line">+charAt(index: int): char//返回指定索引位置的字符</span><br><span class="line">+length(): int//返回该构建器中的字符数</span><br><span class="line">+setLength(newLength: int): void//设置该构建器的新长度</span><br><span class="line">+substring(startIndex: int): String//返回从startIndex开始的字符串</span><br><span class="line">+substring(startIndex: int,endIndex: int):String//返回从startIndex开始endIndex结束的子字符串</span><br><span class="line">+trimToSize(): void//减少用于字符串构建器的存储大小</span><br></pre></td></tr></table></figure><p>​    capacity()方法返回字符串构建器当前的容量。容量是指在不增加构建器大小的情况下存储的字符数量。</p><p>​    length()方法返回字符串构建器中实际存储的字符数量，setLength(newLength)方法设置字符串构建器的长度。如果参数newLength小于字符串构建器当前的长度，则字符串构建器会被截短到恰好能包含由参数newLength给定的字符个数。如果参数newLength大于或者等于当前长度，则给字符串构建器追加足够多的空字符(‘\u0000’),使其长度length变成新参数newLength。参数newLength必须大于等于0。</p><p>​    charAt(index)方法返回字符串构建器中某个特定下标index的字符。下标是基于0的，字符串构建器中的第一个字符的下标为0，第二个字符下标为1，以此类推。参数index必须大于或等于0，并且小于字符串构建器的长度。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;toString、capacity、length、setlength和charAt方法&quot;&gt;&lt;a href=&quot;#toString、capacity、length、setlength和charAt方法&quot; class=&quot;headerlink&quot; title=&quot;toStri
       
     
     </summary>
