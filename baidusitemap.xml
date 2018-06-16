@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/10/Python%E5%AD%A6%E4%B9%A0%E5%9C%B0%E5%9D%80/</loc>
+    <lastmod>2018-06-16T04:43:09.461Z</lastmod>
+    <data>
+        <display>
+        <title>学习地址</title>
+        <pubTime>2018-05-10T03:14:33.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://yoursite.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/06/08/python%E4%B8%AD%E7%B1%BB%E4%B8%AD%E6%93%8D%E4%BD%9C%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81/</loc>
     <lastmod>2018-06-08T15:51:02.187Z</lastmod>
     <data>
@@ -230,26 +250,6 @@
            
              
               <breadCrumb title="Java(基础篇)" url="http://yoursite.com/categories/Java-%E5%9F%BA%E7%A1%80%E7%AF%87/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/05/10/Python%E5%AD%A6%E4%B9%A0%E5%9C%B0%E5%9D%80/</loc>
-    <lastmod>2018-05-10T13:06:06.004Z</lastmod>
-    <data>
-        <display>
-        <title>Python学习地址</title>
-        <pubTime>2018-05-10T03:14:33.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://yoursite.com/categories/Python/"/>
           
         </display>
     </data>
